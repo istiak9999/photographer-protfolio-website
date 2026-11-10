@@ -5,999 +5,479 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elias Vance — Photographer</title>
   <meta name="description" content="Elias Vance is a Portland-based portrait and landscape photographer, available worldwide for commissions and editorial work.">
-  <meta name="theme-color" content="#171613">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23171613'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23f1ece3' text-anchor='middle'%3EEV%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%230a0a0a'/%3E%3Ctext x='32' y='42' font-family='Manrope,sans-serif' font-weight='700' font-size='26' fill='%23ffffff' text-anchor='middle'%3EEV%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/images/hero.jpg">
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add('js');</script>
 </head>
-<body data-theme="default">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="grain" aria-hidden="true"></div>
+  
   <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
 
-  <!-- Luxury Interactive Custom Cursor -->
-  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-    <div class="cursor-badge" id="cursor-badge">VIEW</div>
-  </div>
-
-  <!-- Main Navigation Header -->
   <header class="site-header" id="site-header">
     <a class="brand" href="#top" aria-label="Elias Vance Photography — home">
       <span class="brand-mark" aria-hidden="true">EV</span>
-      <span class="brand-text">
-        <span class="brand-name">Elias Vance</span>
-        <small>Photography</small>
-      </span>
+      <span class="brand-text">Elias Vance</span>
     </a>
 
     <nav class="primary-nav" aria-label="Primary navigation">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#awards">Awards</a>
-      <a href="#journal">Journal</a>
-      <a href="#feedback">Feedback</a>
-      <a href="#contact">Contact</a>
+      <a href="#work" data-text="Work">Work</a>
+      <a href="#about" data-text="About">About</a>
+      <a href="#journal" data-text="Journal">Journal</a>
+      <a href="#contact" data-text="Contact">Contact</a>
     </nav>
 
-    <div class="header-actions">
-      <!-- Atmospheric Camera Audio Toggle -->
-      <button class="sound-toggle magnetic" id="sound-toggle" type="button" aria-label="Toggle analog camera sound" aria-pressed="false" title="Analog Camera Sound">
-        <span class="sound-waves" aria-hidden="true">
-          <span class="sound-bar"></span>
-          <span class="sound-bar"></span>
-          <span class="sound-bar"></span>
-        </span>
-        <span class="sound-text">Sound</span>
-      </button>
-
-      <!-- Atmospheric Film Tone Palette Switcher -->
-      <div class="palette-picker" id="palette-picker" role="group" aria-label="Atmosphere Mood">
-        <button class="palette-pill is-active" type="button" data-theme="default" title="Studio Daylight" aria-pressed="true">
-          <span class="palette-dot dot-default"></span>
-        </button>
-        <button class="palette-pill" type="button" data-theme="portra" title="Kodak Portra 400" aria-pressed="false">
-          <span class="palette-dot dot-portra"></span>
-        </button>
-        <button class="palette-pill" type="button" data-theme="noir" title="Silver Noir B&W" aria-pressed="false">
-          <span class="palette-dot dot-noir"></span>
-        </button>
-        <button class="palette-pill" type="button" data-theme="mist" title="Pacific Mist" aria-pressed="false">
-          <span class="palette-dot dot-mist"></span>
-        </button>
-      </div>
-
-      <!-- Booking CTA -->
-      <a class="nav-cta magnetic" href="#contact">
-        Book a session
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-
-      <!-- Mobile Hamburger Menu Button -->
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
-  <!-- Mobile Fullscreen Navigation Menu -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
     <div class="menu-inner">
-      <div>
-        <p class="eyebrow eyebrow-light">Menu</p>
-        <nav class="menu-nav" aria-label="Mobile navigation">
-          <a href="#work"><span>01</span>Work</a>
-          <a href="#about"><span>02</span>About</a>
-          <a href="#awards"><span>03</span>Awards</a>
-          <a href="#journal"><span>04</span>Journal</a>
-          <a href="#feedback"><span>05</span>Feedback</a>
-          <a href="#contact"><span>06</span>Contact</a>
-        </nav>
-      </div>
-
-      <!-- Mobile Mood Switcher -->
-      <div class="mobile-controls">
-        <p class="eyebrow eyebrow-light">Film Tone Mood</p>
-        <div class="mobile-palette-grid">
-          <button class="mobile-pal-btn is-active" type="button" data-theme="default">Studio</button>
-          <button class="mobile-pal-btn" type="button" data-theme="portra">Portra 400</button>
-          <button class="mobile-pal-btn" type="button" data-theme="noir">Silver Noir</button>
-          <button class="mobile-pal-btn" type="button" data-theme="mist">Pacific Mist</button>
-        </div>
-      </div>
-
+      <nav class="menu-nav" aria-label="Mobile navigation">
+        <a href="#work"><span>01</span>Work</a>
+        <a href="#about"><span>02</span>About</a>
+        <a href="#journal"><span>03</span>Journal</a>
+        <a href="#contact"><span>04</span>Contact</a>
+      </nav>
       <div class="menu-footer">
-        <div>
-          <span class="menu-footer-label">Inquiries</span>
-          <a href="mailto:hello@eliasvance.com">hello@eliasvance.com</a>
-        </div>
-        <div>
-          <span class="menu-footer-label">Studio</span>
-          <p>Portland, Oregon<br>Available worldwide</p>
-        </div>
+        <a href="mailto:hello@eliasvance.com">hello@eliasvance.com</a>
+        <p>Portland, Oregon · Available worldwide</p>
       </div>
     </div>
   </div>
 
   <main id="main">
-    <!-- Hero Section -->
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-media">
-        <img src="assets/images/hero.jpg" alt="Layered mountain ridges disappearing into morning mist" fetchpriority="high">
-        <!-- Interactive Cinematic Sunbeam & Dust Particles Canvas -->
-        <canvas class="hero-dust-canvas" id="hero-dust-canvas" aria-hidden="true"></canvas>
+      <div class="hero-bg">
+        <img src="assets/images/hero.jpg" alt="" fetchpriority="high">
+        <div class="hero-overlay"></div>
       </div>
-      <div class="hero-scrim"></div>
-      <p class="hero-side" aria-hidden="true">Portland, Oregon · 45.5° N · 122.6° W</p>
-
+      
       <div class="hero-content">
-        <!-- Editorial Status Row -->
-        <div class="hero-badge-row">
-          <div class="studio-status-pill" id="studio-status" title="Elias Vance Studio · Portland OR (45.5° N)">
-            <span class="status-pulse-dot" aria-hidden="true"></span>
-            <span class="studio-loc">PDX Studio</span>
-            <span class="studio-time" id="studio-time">12:00 PM</span>
-            <span class="studio-phase-divider" aria-hidden="true">·</span>
-            <span class="studio-phase" id="studio-phase">Golden Hour</span>
-          </div>
-          <span class="hero-film-badge">35mm &amp; Medium Format Archive</span>
+        <div class="hero-copy">
+          <p class="hero-eyebrow" aria-hidden="true">Selected Works 2022–2026</p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="title-line">Chasing light,</span>
+            <span class="title-line title-line--accent">keeping moments.</span>
+          </h1>
+          <p class="hero-desc">Honest photographs of people, places, and the quiet details that make a story feel like yours.</p>
         </div>
-
-        <h1 id="hero-title">Chasing light,<br><em>keeping moments.</em></h1>
-
-        <div class="hero-footer">
-          <p>Honest photographs of people, places, and the quiet details that make a story feel like yours.</p>
-          <div class="hero-actions">
-            <a class="btn btn-light magnetic" href="#work">
-              Explore selected work
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a class="btn btn-ghost magnetic" href="#contact">
-              Interactive Inquiry
-            </a>
-          </div>
+        
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">
+            <span>View Work</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-secondary" href="#contact">
+            <span>Get in Touch</span>
+          </a>
         </div>
+        
+        <div class="hero-scroll" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          <span>Scroll</span>
+        </div>
+      </div>
+      
+      <div class="hero-stats" aria-hidden="true">
+        <div class="stat">
+          <span class="stat-num" data-count="9">0</span>
+          <span class="stat-label">Frames</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="12">0</span>
+          <span class="stat-label">Years</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="18">0</span>
+          <span class="stat-label">Countries</span>
+        </div>
+      </div>
+    </section>
 
-        <div class="hero-bottom">
-          <div class="hero-meta-strip">
-            <span>Selected work · 2022–2026</span>
-            <span class="meta-dot" aria-hidden="true">·</span>
-            <span class="hero-archive-badge">9 Master Frames</span>
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">01 — Selected Work</p>
+        <h2 id="work-title" class="section-title">A study in <em>light</em> & feeling.</h2>
+      </div>
+
+      <div class="filter-bar reveal">
+        <div class="filters" role="group" aria-label="Filter photographs by category">
+          <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="landscape" aria-pressed="false">Landscape</button>
+          <button class="filter-btn" type="button" data-filter="portrait" aria-pressed="false">Portrait</button>
+          <button class="filter-btn" type="button" data-filter="urban" aria-pressed="false">Urban</button>
+        </div>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <figure class="work-card reveal" data-id="frame-1" data-category="landscape" style="--delay: 0ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/alpine.jpg" aria-label="View Alpine Silence">
+            <div class="work-media">
+              <img src="assets/images/alpine.jpg" alt="Still blue lake reflecting a jagged mountain range" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Landscape</span>
+                  <h3 class="work-title">Alpine Silence</h3>
+                  <p class="work-location">North Cascades, WA</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-2" data-category="portrait" style="--delay: 100ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/golden-hour.jpg" aria-label="View Golden Hour">
+            <div class="work-media">
+              <img src="assets/images/golden-hour.jpg" alt="Portrait of a woman in warm late afternoon light" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Portrait</span>
+                  <h3 class="work-title">Golden Hour</h3>
+                  <p class="work-location">Willamette Valley, OR</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-3" data-category="urban" style="--delay: 200ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/concrete.jpg" aria-label="View Concrete Poetry">
+            <div class="work-media">
+              <img src="assets/images/concrete.jpg" alt="Minimal white concrete architecture against a clear sky" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Urban</span>
+                  <h3 class="work-title">Concrete Poetry</h3>
+                  <p class="work-location">Seattle, WA</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-4" data-category="landscape" style="--delay: 300ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/salt-wind.jpg" aria-label="View Salt & Wind">
+            <div class="work-media">
+              <img src="assets/images/salt-wind.jpg" alt="Turquoise waves meeting a pale sandy shore" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Landscape</span>
+                  <h3 class="work-title">Salt & Wind</h3>
+                  <p class="work-location">Oregon Coast, OR</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-5" data-category="portrait" style="--delay: 400ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/quiet-gaze.jpg" aria-label="View The Quiet Gaze">
+            <div class="work-media">
+              <img src="assets/images/quiet-gaze.jpg" alt="Close portrait of a woman looking calmly toward the camera" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Portrait</span>
+                  <h3 class="work-title">The Quiet Gaze</h3>
+                  <p class="work-location">Portland Studio, OR</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-6" data-category="landscape" style="--delay: 500ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/forest.jpg" aria-label="View Forest Cathedral">
+            <div class="work-media">
+              <img src="assets/images/forest.jpg" alt="Sunbeams falling through a canopy of tall green trees" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Landscape</span>
+                  <h3 class="work-title">Forest Cathedral</h3>
+                  <p class="work-location">Olympic National Park, WA</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-7" data-category="urban" style="--delay: 600ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/after-rain.jpg" aria-label="View After Rain">
+            <div class="work-media">
+              <img src="assets/images/after-rain.jpg" alt="A city skyline softened by blue evening haze" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Urban</span>
+                  <h3 class="work-title">After Rain</h3>
+                  <p class="work-location">Portland, OR</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-8" data-category="portrait" style="--delay: 700ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/vows-dusk.jpg" aria-label="View Vows at Dusk">
+            <div class="work-media">
+              <img src="assets/images/vows-dusk.jpg" alt="Newlywed couple walking together at sunset" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Portrait</span>
+                  <h3 class="work-title">Vows at Dusk</h3>
+                  <p class="work-location">Cape Kiwanda, OR</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+
+        <figure class="work-card reveal" data-id="frame-9" data-category="landscape" style="--delay: 800ms;">
+          <a class="work-link" href="#lightbox" data-full="assets/images/dust-gold.jpg" aria-label="View Dust & Gold">
+            <div class="work-media">
+              <img src="assets/images/dust-gold.jpg" alt="Wind-carved sand dunes in warm desert light" loading="lazy">
+              <div class="work-overlay">
+                <div class="work-info">
+                  <span class="work-cat">Landscape</span>
+                  <h3 class="work-title">Dust & Gold</h3>
+                  <p class="work-location">Alvord Desert, OR</p>
+                </div>
+                <span class="work-expand" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </figure>
+      </div>
+    </section>
+
+    <section class="interlude" aria-label="Photographer's philosophy">
+      <div class="interlude-bg">
+        <img src="assets/images/interlude.jpg" alt="" loading="lazy">
+      </div>
+      <div class="interlude-content reveal">
+        <blockquote>
+          <p>“The best photographs don't show you what something looked like. They remind you how it felt.”</p>
+          <cite>Elias Vance</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img src="assets/images/about.jpg" alt="Portrait of photographer Elias Vance" loading="lazy">
+        </div>
+        <div class="about-content reveal">
+          <p class="section-eyebrow">02 — About</p>
+          <h2 id="about-title" class="section-title">Drawn to <em>honest light</em> and unhurried moments.</h2>
+          <p class="about-lead">I'm Elias — a photographer, quiet observer, and collector of small, fleeting things.</p>
+          <div class="about-text">
+            <p>My work lives somewhere between documentary and daydream. I'm less interested in perfect poses than in the pause just before one — the glance, the breath, the hand reaching for another.</p>
+            <p>For over a decade, I've worked with couples, artists, and brands who value stories over trends. Most days you'll find me chasing coastal fog, shooting 35mm, or waiting for the light to change.</p>
           </div>
-          <a class="scroll-cue" href="#work">
-            Scroll to discover
-            <span class="scroll-line" aria-hidden="true"></span>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num" data-count="12">0</span>
+              <span class="stat-label">Years creating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="140">0</span>
+              <span class="stat-label">Stories told</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="18">0</span>
+              <span class="stat-label">Countries wandered</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="#contact">
+            <span>Work With Me</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Work Gallery Section -->
-    <section class="work" id="work" aria-labelledby="work-title">
-      <div class="work-head reveal">
-        <p class="eyebrow">01 / Selected work</p>
-        <div class="work-head-main">
-          <h2 id="work-title">A study in <em>light</em><br>&amp; feeling.</h2>
-          <div class="work-aside">
-            <p>A small collection of frames from recent commissions and personal wanderings — captured on digital and 35mm film.</p>
-            <div class="work-meta-row">
-              <span class="frame-total" aria-live="polite"><span id="frame-count">09</span> selected frames</span>
-              <span class="curated-pill-indicator" id="curated-pill-indicator" hidden>
-                <span class="heart-icon" aria-hidden="true">♥</span> <span id="curated-indicator-count">0</span> bookmarked
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-bar reveal">
-        <div class="filter-controls-group">
-          <div class="filters" role="group" aria-label="Filter photographs by category">
-            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter-btn" type="button" data-filter="landscape" aria-pressed="false">Landscape</button>
-            <button class="filter-btn" type="button" data-filter="portrait" aria-pressed="false">Portrait</button>
-            <button class="filter-btn" type="button" data-filter="urban" aria-pressed="false">Urban</button>
-          </div>
-
-          <!-- Interactive View Switcher: Masonry, Grid, Filmstrip -->
-          <div class="view-switcher" role="group" aria-label="Change gallery presentation layout">
-            <button class="view-btn is-active" type="button" data-view="masonry" aria-pressed="true" title="Editorial Staggered Layout">
-              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="6" height="8" rx="1"/><rect x="9" y="1" width="6" height="5" rx="1"/><rect x="9" y="8" width="6" height="7" rx="1"/><rect x="1" y="11" width="6" height="4" rx="1"/></svg>
-              <span>Masonry</span>
-            </button>
-            <button class="view-btn" type="button" data-view="grid" aria-pressed="false" title="Symmetric Grid Layout">
-              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-              <span>Grid</span>
-            </button>
-            <button class="view-btn" type="button" data-view="filmstrip" aria-pressed="false" title="Contact Filmstrip Reel">
-              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="3" cy="1.5" r="1"/><circle cx="8" cy="1.5" r="1"/><circle cx="13" cy="1.5" r="1"/><circle cx="3" cy="14.5" r="1"/><circle cx="8" cy="14.5" r="1"/><circle cx="13" cy="14.5" r="1"/></svg>
-              <span>Filmstrip</span>
-            </button>
-          </div>
-        </div>
-
-        <p class="filter-note">Shot on film &amp; digital · Hover frames for EXIF specs</p>
-      </div>
-
-      <!-- Rock-Solid Non-Overlapping Gallery Grid -->
-      <div class="gallery view-masonry" id="gallery">
-        <!-- Frame 01 -->
-        <figure class="work-card ratio-landscape reveal" data-id="frame-1" data-category="landscape" data-label="Landscape" data-title="Alpine Silence" data-gear="Leica M6 · 35mm Summicron" data-exposure="f/2.0 · 1/500s · ISO 400" data-stock="Kodak Portra 400" data-location="North Cascades, WA">
-          <button class="work-button" type="button" data-full="assets/images/alpine.jpg" aria-label="View Alpine Silence, landscape photograph">
-            <span class="work-media">
-              <img src="assets/images/alpine.jpg" alt="Still blue lake reflecting a jagged mountain range" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Leica M6</span>
-                <span class="exif-spec">35mm · f/2.0 · 1/500s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">01</span>
-              <span class="work-title">Alpine Silence</span>
-              <span class="work-cat">Landscape</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-1" aria-label="Add Alpine Silence to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 02 -->
-        <figure class="work-card ratio-portrait reveal" data-id="frame-2" data-category="portrait" data-label="Portrait" data-title="Golden Hour" data-gear="Hasselblad 500C · 80mm Planar" data-exposure="f/2.8 · 1/250s · ISO 200" data-stock="Kodak Gold 200" data-location="Willamette Valley, OR">
-          <button class="work-button" type="button" data-full="assets/images/golden-hour.jpg" aria-label="View Golden Hour, portrait photograph">
-            <span class="work-media">
-              <img src="assets/images/golden-hour.jpg" alt="Portrait of a woman in warm late afternoon light" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Hasselblad 500C</span>
-                <span class="exif-spec">80mm · f/2.8 · 1/250s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">02</span>
-              <span class="work-title">Golden Hour</span>
-              <span class="work-cat">Portrait</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-2" aria-label="Add Golden Hour to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 03 -->
-        <figure class="work-card ratio-square reveal" data-id="frame-3" data-category="urban" data-label="Urban" data-title="Concrete Poetry" data-gear="Contax G2 · 28mm Biogon" data-exposure="f/8.0 · 1/1000s · ISO 400" data-stock="Ilford HP5 Plus" data-location="Seattle, WA">
-          <button class="work-button" type="button" data-full="assets/images/concrete.jpg" aria-label="View Concrete Poetry, urban photograph">
-            <span class="work-media">
-              <img src="assets/images/concrete.jpg" alt="Minimal white concrete architecture against a clear sky" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Contax G2</span>
-                <span class="exif-spec">28mm · f/8.0 · 1/1000s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">03</span>
-              <span class="work-title">Concrete Poetry</span>
-              <span class="work-cat">Urban</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-3" aria-label="Add Concrete Poetry to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 04 -->
-        <figure class="work-card ratio-wide reveal" data-id="frame-4" data-category="landscape" data-label="Landscape" data-title="Salt &amp; Wind" data-gear="Mamiya 7II · 65mm f/4" data-exposure="f/5.6 · 1/125s · ISO 400" data-stock="Fuji Pro 400H" data-location="Oregon Coast, OR">
-          <button class="work-button" type="button" data-full="assets/images/salt-wind.jpg" aria-label="View Salt and Wind, landscape photograph">
-            <span class="work-media">
-              <img src="assets/images/salt-wind.jpg" alt="Turquoise waves meeting a pale sandy shore" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Mamiya 7II</span>
-                <span class="exif-spec">65mm · f/5.6 · 1/125s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">04</span>
-              <span class="work-title">Salt &amp; Wind</span>
-              <span class="work-cat">Landscape</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-4" aria-label="Add Salt and Wind to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 05 -->
-        <figure class="work-card ratio-tall reveal" data-id="frame-5" data-category="portrait" data-label="Portrait" data-title="The Quiet Gaze" data-gear="Pentax 67 · 105mm f/2.4" data-exposure="f/2.4 · 1/180s · ISO 160" data-stock="Kodak Portra 160" data-location="Portland Studio, OR">
-          <button class="work-button" type="button" data-full="assets/images/quiet-gaze.jpg" aria-label="View The Quiet Gaze, portrait photograph">
-            <span class="work-media">
-              <img src="assets/images/quiet-gaze.jpg" alt="Close portrait of a woman looking calmly toward the camera" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Pentax 67</span>
-                <span class="exif-spec">105mm · f/2.4 · 1/180s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">05</span>
-              <span class="work-title">The Quiet Gaze</span>
-              <span class="work-cat">Portrait</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-5" aria-label="Add The Quiet Gaze to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 06 -->
-        <figure class="work-card ratio-landscape reveal" data-id="frame-6" data-category="landscape" data-label="Landscape" data-title="Forest Cathedral" data-gear="Leica MP · 50mm Summilux" data-exposure="f/1.4 · 1/60s · ISO 50" data-stock="Cinestill 50D" data-location="Olympic National Park, WA">
-          <button class="work-button" type="button" data-full="assets/images/forest.jpg" aria-label="View Forest Cathedral, landscape photograph">
-            <span class="work-media">
-              <img src="assets/images/forest.jpg" alt="Sunbeams falling through a canopy of tall green trees" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Leica MP</span>
-                <span class="exif-spec">50mm · f/1.4 · 1/60s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">06</span>
-              <span class="work-title">Forest Cathedral</span>
-              <span class="work-cat">Landscape</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-6" aria-label="Add Forest Cathedral to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 07 -->
-        <figure class="work-card ratio-portrait reveal" data-id="frame-7" data-category="urban" data-label="Urban" data-title="After Rain" data-gear="Ricoh GR IIIx · 40mm f/2.8" data-exposure="f/2.8 · 1/120s · ISO 800" data-stock="Digital Raw · Film Sim" data-location="Portland, OR">
-          <button class="work-button" type="button" data-full="assets/images/after-rain.jpg" aria-label="View After Rain, urban photograph">
-            <span class="work-media">
-              <img src="assets/images/after-rain.jpg" alt="A city skyline softened by blue evening haze" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Ricoh GR IIIx</span>
-                <span class="exif-spec">40mm · f/2.8 · 1/120s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">07</span>
-              <span class="work-title">After Rain</span>
-              <span class="work-cat">Urban</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-7" aria-label="Add After Rain to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 08 -->
-        <figure class="work-card ratio-wide reveal" data-id="frame-8" data-category="portrait" data-label="Portrait" data-title="Vows at Dusk" data-gear="Canon EOS R5 · 50mm f/1.2L" data-exposure="f/1.4 · 1/400s · ISO 200" data-stock="Custom Warm Film Curve" data-location="Cape Kiwanda, OR">
-          <button class="work-button" type="button" data-full="assets/images/vows-dusk.jpg" aria-label="View Vows at Dusk, wedding photograph">
-            <span class="work-media">
-              <img src="assets/images/vows-dusk.jpg" alt="Newlywed couple walking together at sunset" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Canon EOS R5</span>
-                <span class="exif-spec">50mm · f/1.4 · 1/400s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">08</span>
-              <span class="work-title">Vows at Dusk</span>
-              <span class="work-cat">Portrait</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-8" aria-label="Add Vows at Dusk to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-
-        <!-- Frame 09 -->
-        <figure class="work-card ratio-square reveal" data-id="frame-9" data-category="landscape" data-label="Landscape" data-title="Dust &amp; Gold" data-gear="Hasselblad X2D 100C · 38mm f/2.5" data-exposure="f/4.0 · 1/800s · ISO 64" data-stock="Medium Format RAW" data-location="Alvord Desert, OR">
-          <button class="work-button" type="button" data-full="assets/images/dust-gold.jpg" aria-label="View Dust and Gold, landscape photograph">
-            <span class="work-media">
-              <img src="assets/images/dust-gold.jpg" alt="Wind-carved sand dunes in warm desert light" loading="lazy">
-              <span class="work-view">View <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="work-exif-pill" aria-hidden="true">
-                <span class="exif-cam">Hasselblad X2D</span>
-                <span class="exif-spec">38mm · f/4.0 · 1/800s</span>
-              </span>
-            </span>
-            <span class="work-caption">
-              <span class="work-index">09</span>
-              <span class="work-title">Dust &amp; Gold</span>
-              <span class="work-cat">Landscape</span>
-            </span>
-          </button>
-          <button class="work-bookmark-btn" type="button" data-bookmark="frame-9" aria-label="Add Dust and Gold to curated shortlist" title="Bookmark frame">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.4"/></svg>
-          </button>
-        </figure>
-      </div>
-
-      <!-- Floating Curated Dock / Shortlist pill -->
-      <aside class="curated-dock" id="curated-dock" aria-label="Curated frames shortlist" hidden>
-        <button class="curated-trigger magnetic" id="curated-trigger" type="button">
-          <span class="curated-icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </span>
-          <span class="curated-text">Curated Selection (<span id="curated-count">0</span>)</span>
-          <span class="curated-cta">Review Set &rarr;</span>
-        </button>
-      </aside>
-    </section>
-
-    <!-- Interlude with Atmospheric Quote -->
-    <section class="interlude" aria-label="Photographer's philosophy">
-      <img src="assets/images/interlude.jpg" alt="A winding river cutting through a vast mountain valley" loading="lazy">
-      <blockquote class="reveal">
-        <p>“The best photographs don’t show you what something looked like. They remind you how it felt.”</p>
-        <cite>Elias Vance</cite>
-      </blockquote>
-      <span class="interlude-index" aria-hidden="true">Frame 010 / Philosophy</span>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="about-inner">
-        <figure class="about-media reveal">
-          <img src="assets/images/about.jpg" alt="Portrait of photographer Elias Vance" loading="lazy">
-          <div class="about-badge">
-            <span class="badge-num">12</span>
-            <span class="badge-text">Years<br>behind the lens</span>
-          </div>
-          <figcaption>Pacific Northwest — 2026</figcaption>
-        </figure>
-
-        <div class="about-content">
-          <p class="eyebrow reveal">02 / About</p>
-          <h2 class="reveal" id="about-title">Drawn to <em>honest light</em><br>and unhurried moments.</h2>
-          <p class="lead reveal">I’m Elias — a photographer, quiet observer, and collector of small, fleeting things.</p>
-          <div class="about-copy reveal">
-            <p>My work lives somewhere between documentary and daydream. I’m less interested in perfect poses than in the pause just before one — the glance, the breath, the hand reaching for another.</p>
-            <p>For over a decade, I’ve worked with couples, artists, and brands who value stories over trends. Most days you’ll find me chasing coastal fog, shooting 35mm, or waiting for the light to change.</p>
-          </div>
-
-          <div class="stats reveal">
-            <div class="stat">
-              <span class="stat-num" data-count="12">12</span>
-              <span class="stat-label">Years creating</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num" data-count="140">140</span>
-              <span class="stat-label">Stories told</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num" data-count="18">18</span>
-              <span class="stat-label">Countries wandered</span>
-            </div>
-          </div>
-
-          <div class="about-cta reveal">
-            <a class="btn btn-dark magnetic" href="#contact">
-              Work with me
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <p class="signature" aria-hidden="true">Elias</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive Before / After Hand-Grade Slider: Film Negative vs Master Print -->
-      <div class="compare-container reveal" aria-label="Interactive darkroom comparison slider">
-        <div class="compare-head">
-          <div class="compare-eyebrow">
-            <span class="compare-badge">Interactive Darkroom Study</span>
-            <span class="compare-sub">Raw Film Negative vs Archival Pigment Grade</span>
-          </div>
-          <p class="compare-tip">Drag the center slider left and right to inspect the tonal depth</p>
-        </div>
-
-        <div class="compare-stage" id="compare-stage">
-          <div class="compare-layer compare-after">
-            <img src="assets/images/forest.jpg" alt="Master graded forest photograph with golden sunbeams">
-            <span class="compare-tag tag-after">Master Graded Print</span>
-          </div>
-          <div class="compare-layer compare-before" id="compare-before">
-            <img src="assets/images/forest.jpg" alt="Raw negative scan of forest photograph">
-            <span class="compare-tag tag-before">Raw Negative Scan</span>
-          </div>
-          <div class="compare-handle" id="compare-handle" role="slider" aria-label="Comparison divider position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-            <div class="compare-handle-line"></div>
-            <div class="compare-handle-button">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 7L3 12L8 17M16 7L21 12L16 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Awards Section -->
-    <section class="awards" id="awards" aria-labelledby="awards-title">
-      <div class="awards-inner">
-        <div class="awards-head">
-          <p class="eyebrow eyebrow-light reveal">03 / Recognition</p>
-          <h2 id="awards-title" class="reveal">Honoured to be<br><em>seen.</em></h2>
-          <p class="awards-intro reveal">Awards are never the reason to make a picture — but it means a great deal when the quiet work finds an audience.</p>
-          <div class="awards-count reveal">
-            <span class="awards-num" data-count="24">24</span>
-            <span class="awards-count-label">awards,<br>features &amp; exhibitions</span>
-          </div>
-        </div>
-
-        <ol class="awards-list reveal">
-          <li class="award" data-preview="assets/images/alpine.jpg">
-            <span class="award-year">2025</span>
-            <span class="award-body">
-              <span class="award-name">International Photography Awards</span>
-              <span class="award-detail">1st Place — Landscape Series</span>
-            </span>
-            <span class="award-place">New York</span>
-            <span class="award-arrow" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </li>
-          <li class="award" data-preview="assets/images/quiet-gaze.jpg">
-            <span class="award-year">2024</span>
-            <span class="award-body">
-              <span class="award-name">LensCulture Portrait Awards</span>
-              <span class="award-detail">Finalist — Single Image</span>
-            </span>
-            <span class="award-place">Paris</span>
-            <span class="award-arrow" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </li>
-          <li class="award" data-preview="assets/images/concrete.jpg">
-            <span class="award-year">2024</span>
-            <span class="award-body">
-              <span class="award-name">Communication Arts Photography Annual</span>
-              <span class="award-detail">Selected — Editorial</span>
-            </span>
-            <span class="award-place">San Francisco</span>
-            <span class="award-arrow" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </li>
-          <li class="award" data-preview="assets/images/forest.jpg">
-            <span class="award-year">2023</span>
-            <span class="award-body">
-              <span class="award-name">PDN Photo Annual</span>
-              <span class="award-detail">Winner — Personal Work</span>
-            </span>
-            <span class="award-place">New York</span>
-            <span class="award-arrow" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </li>
-          <li class="award" data-preview="assets/images/after-rain.jpg">
-            <span class="award-year">2022</span>
-            <span class="award-body">
-              <span class="award-name">Hello Tomorrow Art Prize</span>
-              <span class="award-detail">Shortlist — Documentary</span>
-            </span>
-            <span class="award-place">Singapore</span>
-            <span class="award-arrow" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </li>
-          <li class="award" data-preview="assets/images/dust-gold.jpg">
-            <span class="award-year">2021</span>
-            <span class="award-body">
-              <span class="award-name">Sony World Photography Awards</span>
-              <span class="award-detail">Commended — Open Category</span>
-            </span>
-            <span class="award-place">London</span>
-            <span class="award-arrow" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="awards-preview" id="awards-preview" aria-hidden="true">
-        <img id="awards-preview-img" src="assets/images/alpine.jpg" alt="">
-      </div>
-    </section>
-
-    <!-- Journal Section -->
     <section class="journal" id="journal" aria-labelledby="journal-title">
-      <div class="journal-inner">
-        <div class="journal-head reveal">
-          <p class="eyebrow">04 / Journal</p>
-          <div class="journal-head-main">
-            <h2 id="journal-title">Notes from<br><em>the field.</em></h2>
-            <div class="journal-aside">
-              <p>Thoughts on light, process, and the small decisions that shape a photograph. Written between shoots, usually with cold coffee nearby.</p>
-              <a class="btn btn-dark magnetic" href="#feedback">
-                Client stories
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
+      <div class="section-header reveal">
+        <p class="section-eyebrow">03 — Journal</p>
+        <h2 id="journal-title" class="section-title">Notes from <em>the field.</em></h2>
+      </div>
+
+      <div class="journal-grid">
+        <article class="journal-card reveal" style="--delay: 0ms;">
+          <a class="journal-link" href="#reader" data-article="prepare-portrait">
+            <div class="journal-media">
+              <img src="assets/images/about.jpg" alt="Photographer adjusting a portrait session" loading="lazy">
             </div>
-          </div>
-        </div>
+            <div class="journal-body">
+              <span class="journal-tag">Craft</span>
+              <h3 class="journal-title">How to prepare for a portrait that feels like you</h3>
+              <p class="journal-excerpt">The best sessions are not about being photographed. They are about forgetting, for an hour, that a camera is there.</p>
+              <span class="journal-meta">Feb 2026 · 6 min read</span>
+            </div>
+          </a>
+        </article>
 
-        <div class="journal-grid">
-          <article class="journal-card reveal">
-            <button class="journal-button" type="button" data-article="prepare-portrait" aria-label="Read How to prepare for a portrait that feels like you">
-              <span class="journal-media">
-                <img src="assets/images/about.jpg" alt="Photographer adjusting a portrait session in soft natural light" loading="lazy">
-                <span class="journal-tag">Craft</span>
-              </span>
-              <span class="journal-meta">
-                <span>Feb 2026</span>
-                <span>6 min read</span>
-              </span>
-              <span class="journal-title">How to prepare for a portrait that feels like you</span>
-              <span class="journal-excerpt">The best sessions are not about being photographed. They are about forgetting, for an hour, that a camera is there.</span>
-              <span class="journal-read">
-                Read story
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </article>
+        <article class="journal-card reveal" style="--delay: 100ms;">
+          <a class="journal-link" href="#reader" data-article="coastal-fog">
+            <div class="journal-media">
+              <img src="assets/images/salt-wind.jpg" alt="Waves meeting a pale shoreline under soft coastal light" loading="lazy">
+            </div>
+            <div class="journal-body">
+              <span class="journal-tag">Field Notes</span>
+              <h3 class="journal-title">Chasing fog on the Oregon coast</h3>
+              <p class="journal-excerpt">Some mornings the coast gives you nothing but grey. That is usually when it gives you everything.</p>
+              <span class="journal-meta">Jan 2026 · 4 min read</span>
+            </div>
+          </a>
+        </article>
 
-          <article class="journal-card reveal">
-            <button class="journal-button" type="button" data-article="coastal-fog" aria-label="Read Chasing fog on the Oregon coast">
-              <span class="journal-media">
-                <img src="assets/images/salt-wind.jpg" alt="Waves meeting a pale shoreline under soft coastal light" loading="lazy">
-                <span class="journal-tag">Field notes</span>
-              </span>
-              <span class="journal-meta">
-                <span>Jan 2026</span>
-                <span>4 min read</span>
-              </span>
-              <span class="journal-title">Chasing fog on the Oregon coast</span>
-              <span class="journal-excerpt">Some mornings the coast gives you nothing but grey. That is usually when it gives you everything.</span>
-              <span class="journal-read">
-                Read story
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </article>
-
-          <article class="journal-card reveal">
-            <button class="journal-button" type="button" data-article="shooting-film" aria-label="Read Why I still shoot 35mm in a digital world">
-              <span class="journal-media">
-                <img src="assets/images/forest.jpg" alt="Sunbeams falling through a quiet forest canopy" loading="lazy">
-                <span class="journal-tag">Process</span>
-              </span>
-              <span class="journal-meta">
-                <span>Dec 2025</span>
-                <span>5 min read</span>
-              </span>
-              <span class="journal-title">Why I still shoot 35mm in a digital world</span>
-              <span class="journal-excerpt">Film does not make a photograph better. It makes me slower, and slower is often the point.</span>
-              <span class="journal-read">
-                Read story
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </article>
-        </div>
+        <article class="journal-card reveal" style="--delay: 200ms;">
+          <a class="journal-link" href="#reader" data-article="shooting-film">
+            <div class="journal-media">
+              <img src="assets/images/forest.jpg" alt="Sunbeams falling through a quiet forest canopy" loading="lazy">
+            </div>
+            <div class="journal-body">
+              <span class="journal-tag">Process</span>
+              <h3 class="journal-title">Why I still shoot 35mm in a digital world</h3>
+              <p class="journal-excerpt">Film does not make a photograph better. It makes me slower, and slower is often the point.</p>
+              <span class="journal-meta">Dec 2025 · 5 min read</span>
+            </div>
+          </a>
+        </article>
       </div>
     </section>
 
-    <!-- Feedback Section -->
-    <section class="feedback" id="feedback" aria-labelledby="feedback-title">
-      <div class="feedback-inner">
-        <div class="feedback-head reveal">
-          <p class="eyebrow">05 / Kind words</p>
-          <div class="feedback-head-main">
-            <h2 id="feedback-title">Stories from<br><em>lovely people.</em></h2>
-            <p class="feedback-intro">The photographs are only half the story. These are the words that stay with me long after the frame is delivered.</p>
-          </div>
-        </div>
-
-        <div class="feedback-slider reveal" data-slider>
-          <div class="feedback-slides" aria-live="polite">
-            <article class="feedback-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 4">
-              <blockquote>
-                <p>“Elias has a way of disappearing into the background and then handing you photographs that feel like memories you didn’t know were being kept.”</p>
-              </blockquote>
-              <div class="feedback-author">
-                <span class="feedback-name">Maya &amp; Theo</span>
-                <span class="feedback-meta">Wedding · Cannon Beach</span>
-              </div>
-            </article>
-
-            <article class="feedback-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
-              <blockquote>
-                <p>“The portraits feel like me on a day I didn’t know anyone was watching. That is the highest compliment I can give.”</p>
-              </blockquote>
-              <div class="feedback-author">
-                <span class="feedback-name">Priya Raman</span>
-                <span class="feedback-meta">Artist portrait · Portland</span>
-              </div>
-            </article>
-
-            <article class="feedback-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
-              <blockquote>
-                <p>“We hired a photographer and ended up with a family archive. Ten years from now these will be the first things we save in a fire.”</p>
-              </blockquote>
-              <div class="feedback-author">
-                <span class="feedback-name">The Alvarez Family</span>
-                <span class="feedback-meta">Family session · Hood River</span>
-              </div>
-            </article>
-
-            <article class="feedback-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
-              <blockquote>
-                <p>“He saw our brand before we could explain it. Every frame was quiet, confident, and exactly right.”</p>
-              </blockquote>
-              <div class="feedback-author">
-                <span class="feedback-name">Northline Studio</span>
-                <span class="feedback-meta">Editorial campaign · Seattle</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="feedback-footer">
-            <div class="feedback-controls">
-              <button class="slider-btn" type="button" data-slide-prev aria-label="Previous testimonial">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-              <button class="slider-btn" type="button" data-slide-next aria-label="Next testimonial">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
-
-            <div class="feedback-dots" role="tablist" aria-label="Choose testimonial">
-              <button class="feedback-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Testimonial 1" data-slide-to="0"></button>
-              <button class="feedback-dot" type="button" role="tab" aria-selected="false" aria-label="Testimonial 2" data-slide-to="1"></button>
-              <button class="feedback-dot" type="button" role="tab" aria-selected="false" aria-label="Testimonial 3" data-slide-to="2"></button>
-              <button class="feedback-dot" type="button" role="tab" aria-selected="false" aria-label="Testimonial 4" data-slide-to="3"></button>
-            </div>
-
-            <p class="feedback-counter"><span id="feedback-current">01</span> / 04</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
     <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="contact-inner">
-        <div class="contact-head reveal">
-          <p class="eyebrow eyebrow-light">06 / Say hello</p>
-          <p class="availability"><span class="availability-dot" aria-hidden="true"></span>Now booking spring &amp; summer 2026</p>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="section-eyebrow">04 — Contact</p>
+          <h2 id="contact-title" class="section-title">Have a story<br>worth telling?</h2>
+          <p class="contact-desc">Whether it's a wedding, an editorial portrait, or an expedition into quiet landscapes — tell me what you're dreaming up. I'd love to hear it.</p>
+          <a class="contact-email" href="mailto:hello@eliasvance.com">
+            <span>hello@eliasvance.com</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="contact-note">Now booking spring & summer 2026. Typically respond within 48 hours.</p>
         </div>
-
-        <div class="contact-grid">
-          <div class="contact-main reveal">
-            <h2 id="contact-title">Have a story<br><em>worth telling?</em></h2>
-            <p class="contact-copy">Whether it’s a wedding, an editorial portrait, or an expedition into quiet landscapes — tell me what you’re dreaming up. I’d love to hear it.</p>
-
-            <!-- Direct Contact Link -->
-            <a class="email-link" href="mailto:hello@eliasvance.com" id="direct-email-link">
-              <span>hello@eliasvance.com</span>
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18L18 6M18 6H8M18 6V16" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-
-            <!-- Interactive Project Scope & Session Calculator Tool -->
-            <div class="scope-builder" id="scope-builder">
-              <div class="scope-builder-head">
-                <span class="scope-builder-pill">Interactive Inquiry Builder</span>
-                <span class="scope-builder-sub">Customize your session specifications</span>
-              </div>
-
-              <div class="scope-field">
-                <label class="scope-label" id="label-genre">01. Session Type</label>
-                <div class="scope-options" role="radiogroup" aria-labelledby="label-genre">
-                  <button class="scope-option is-active" type="button" data-group="genre" data-val="Portrait & Editorial" aria-checked="true" role="radio">Portrait &amp; Editorial</button>
-                  <button class="scope-option" type="button" data-group="genre" data-val="Wedding & Elopement" aria-checked="false" role="radio">Wedding &amp; Elopement</button>
-                  <button class="scope-option" type="button" data-group="genre" data-val="Commercial Campaign" aria-checked="false" role="radio">Commercial Campaign</button>
-                  <button class="scope-option" type="button" data-group="genre" data-val="Landscape & Archival Print" aria-checked="false" role="radio">Landscape &amp; Print</button>
-                </div>
-              </div>
-
-              <div class="scope-field">
-                <label class="scope-label" id="label-medium">02. Photographic Medium</label>
-                <div class="scope-options" role="radiogroup" aria-labelledby="label-medium">
-                  <button class="scope-option is-active" type="button" data-group="medium" data-val="Hybrid (35mm Film + Digital RAW)" aria-checked="true" role="radio">Hybrid (35mm Film + Digital)</button>
-                  <button class="scope-option" type="button" data-group="medium" data-val="Analog Pure (35mm & 120 Medium Format Film)" aria-checked="false" role="radio">Pure Analog (35mm &amp; 120)</button>
-                  <button class="scope-option" type="button" data-group="medium" data-val="Digital Archive (Ultra-High Resolution RAW)" aria-checked="false" role="radio">Digital High-Res RAW</button>
-                </div>
-              </div>
-
-              <div class="scope-field">
-                <label class="scope-label" id="label-scope">03. Timeframe &amp; Scope</label>
-                <div class="scope-options" role="radiogroup" aria-labelledby="label-scope">
-                  <button class="scope-option is-active" type="button" data-group="scope" data-val="Half-Day Story (3-4 hours)" aria-checked="true" role="radio">Half-Day (3–4 hrs)</button>
-                  <button class="scope-option" type="button" data-group="scope" data-val="Full-Day Immersion (7-9 hours)" aria-checked="false" role="radio">Full-Day (7–9 hrs)</button>
-                  <button class="scope-option" type="button" data-group="scope" data-val="Multi-Day Expedition / Travel" aria-checked="false" role="radio">Multi-Day Travel</button>
-                </div>
-              </div>
-
-              <!-- Live Scope Summary & Dispatch -->
-              <div class="scope-summary">
-                <div class="scope-summary-text">
-                  <span class="scope-summary-label">Estimated Session Scope</span>
-                  <div class="scope-summary-output" id="scope-summary-output">
-                    Portrait &amp; Editorial · Hybrid (35mm Film + Digital) · Half-Day (3–4 hrs)
-                  </div>
-                  <div class="scope-deliverables" id="scope-deliverables">
-                    Includes online private master gallery + 35mm film negatives + high-res licensing
-                  </div>
-                </div>
-
-                <div class="scope-actions">
-                  <a class="btn btn-light magnetic" id="scope-email-btn" href="mailto:hello@eliasvance.com">
-                    Draft Inquiry Email
-                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </a>
-                  <button class="btn btn-ghost magnetic" id="scope-copy-btn" type="button">
-                    <span id="scope-copy-text">Copy Brief</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+        
+        <form class="contact-form reveal" action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
           </div>
-
-          <aside class="contact-aside reveal" aria-label="Contact details">
-            <div class="contact-item">
-              <span>Studio</span>
-              <p>Portland, Oregon<br>Available worldwide</p>
-            </div>
-            <div class="contact-item">
-              <span>Follow along</span>
-              <div class="socials">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance</a>
-                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span>Response time</span>
-              <p>Within 2 business days</p>
-            </div>
-            <div class="contact-item studio-live-card">
-              <span>Studio Availability</span>
-              <p class="studio-status-line">
-                <span class="live-dot-pulse"></span>
-                <span>Accepting Spring/Summer 2026 Commissions</span>
-              </p>
-            </div>
-          </aside>
-        </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="session-type">Session Type</label>
+            <select id="session-type" name="session-type" required>
+              <option value="">Select a session type</option>
+              <option value="Portrait & Editorial">Portrait & Editorial</option>
+              <option value="Wedding & Elopement">Wedding & Elopement</option>
+              <option value="Commercial Campaign">Commercial Campaign</option>
+              <option value="Landscape & Archival Print">Landscape & Print</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell me about your project</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Send Inquiry</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="site-footer-inner">
-      <a class="footer-mark" href="#top" aria-label="Back to top">Elias Vance</a>
-      <p>© 2026 Elias Vance. All rights reserved.</p>
-      <a class="to-top" href="#top">
-        Back to top
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M8 3L4 7M8 3L12 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-mark">EV</span>
+        <p>Elias Vance Photography</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2026 Elias Vance. All rights reserved.</p>
     </div>
-    <p class="footer-credit">By <span>Md Istiak Ahmed Khan</span></p>
   </footer>
 
-  <!-- Next-Gen Darkroom Lightbox with Magnifier Loupe & Film Simulator -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photography viewer" aria-hidden="true">
-    <div class="lightbox-topbar">
-      <!-- Film Grade Simulator in Lightbox -->
-      <div class="lightbox-sim-picker" role="group" aria-label="Film simulation filter">
-        <span class="sim-label">Grade:</span>
-        <button class="sim-btn is-active" type="button" data-sim="normal" aria-pressed="true">Normal</button>
-        <button class="sim-btn" type="button" data-sim="portra" aria-pressed="false">Portra</button>
-        <button class="sim-btn" type="button" data-sim="bw" aria-pressed="false">B&amp;W</button>
-        <button class="sim-btn" type="button" data-sim="cool" aria-pressed="false">Cool</button>
-      </div>
-
-      <!-- Action Tools: Loupe & Fullscreen & Close -->
-      <div class="lightbox-tools">
-        <button class="lightbox-tool-btn" id="loupe-toggle-btn" type="button" aria-label="Toggle 2.5x inspection magnifier loupe" title="Inspect optical detail (Loupe)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="3" stroke-dasharray="2 2"/></svg>
-          <span class="tool-btn-label">Loupe</span>
-        </button>
-        <button class="lightbox-tool-btn" id="lightbox-fs-btn" type="button" aria-label="Toggle fullscreen view" title="Fullscreen">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-        </button>
-        <button class="lightbox-close" type="button" aria-label="Close viewer">
-          Close
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </button>
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <div class="lightbox-overlay"></div>
+    <button class="lightbox-close" type="button" aria-label="Close lightbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6L18 18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-meta"></p>
       </div>
     </div>
-
-    <div class="lightbox-stage">
-      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photograph">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-
-      <figure class="lightbox-figure" id="lightbox-figure">
-        <div class="lightbox-img-wrapper" id="lightbox-img-wrapper">
-          <img id="lightbox-img" alt="">
-          <!-- Optical Inspection Loupe -->
-          <div class="lightbox-loupe" id="lightbox-loupe" aria-hidden="true">
-            <div class="loupe-zoom" id="loupe-zoom"></div>
-            <div class="loupe-reticle"></div>
-            <span class="loupe-badge">2.5× Loupe</span>
-          </div>
-        </div>
-
-        <figcaption>
-          <div class="lightbox-meta">
-            <span class="lightbox-title" id="lightbox-title"></span>
-            <span class="lightbox-category" id="lightbox-category"></span>
-            <span class="lightbox-gear-spec" id="lightbox-gear-spec"></span>
-          </div>
-          <div class="lightbox-info-row">
-            <span class="lightbox-film-tag" id="lightbox-film-tag"></span>
-            <span class="lightbox-counter" id="lightbox-counter">01 / 09</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photograph">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-    <!-- Quick Thumbnails Filmstrip inside Lightbox -->
-    <div class="lightbox-strip" id="lightbox-strip" aria-label="Jump to photograph">
-      <!-- Injected via JavaScript -->
-    </div>
+    <div class="lightbox-counter" id="lightbox-counter" aria-hidden="true">01 / 09</div>
   </div>
 
-  <!-- Curated Frames Shortlist Modal -->
-  <div class="curated-modal" id="curated-modal" role="dialog" aria-modal="true" aria-labelledby="curated-modal-title" aria-hidden="true">
-    <div class="curated-modal-panel">
-      <div class="curated-modal-head">
-        <div>
-          <p class="eyebrow">Client Shortlist</p>
-          <h2 id="curated-modal-title">Your Curated Collection</h2>
-          <p class="curated-modal-sub">Review your handpicked frames or send them directly with your inquiry.</p>
-        </div>
-        <button class="curated-modal-close" id="curated-modal-close" type="button" aria-label="Close curated modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 6L18 18M18 6L6 18"/></svg>
-        </button>
-      </div>
-
-      <div class="curated-grid" id="curated-grid">
-        <!-- Rendered dynamically -->
-      </div>
-
-      <div class="curated-modal-footer">
-        <p class="curated-empty-note" id="curated-empty-note" hidden>No frames bookmarked yet. Tap the heart on any photo to add it to your shortlist.</p>
-        <div class="curated-footer-actions">
-          <button class="btn btn-ghost" id="curated-clear-btn" type="button">Clear Shortlist</button>
-          <a class="btn btn-dark" id="curated-inquire-btn" href="#contact">Inquire with these frames &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Journal Article Reader Modal -->
-  <div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="reader-title" aria-hidden="true">
+  <!-- Article Reader Modal -->
+  <div class="reader" id="reader" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Journal article">
+    <div class="reader-overlay"></div>
     <div class="reader-panel">
       <button class="reader-close" type="button" aria-label="Close article">
-        Close
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6L18 18"/></svg>
       </button>
-
-      <article class="reader-article">
-        <p class="eyebrow">Journal</p>
-        <h2 id="reader-title"></h2>
-        <p class="reader-meta" id="reader-meta"></p>
-        <img class="reader-hero" id="reader-img" src="assets/images/about.jpg" alt="">
-        <div class="reader-body" id="reader-body"></div>
-      </article>
+      <div class="reader-content">
+        <img id="reader-img" src="" alt="" loading="lazy">
+        <div class="reader-text">
+          <span class="reader-meta" id="reader-meta"></span>
+          <h2 id="reader-title"></h2>
+          <div id="reader-body"></div>
+        </div>
+      </div>
     </div>
   </div>
 
