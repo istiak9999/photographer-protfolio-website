@@ -291,10 +291,43 @@
     requestAnimationFrame(step);
   };
 
-  if (counters.length && !prefersReducedMotion && "IntersectionObserver" in window) {
-    new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { animate(e.target); } });
-    }, { threshold: 0.5 }).observe(...counters);
+  if (counters.length) {
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      counters.forEach(el => { el.textContent = el.dataset.count; });
+    } else {
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          animate(entry.target);
+          counterObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(counter => counterObserver.observe(counter));
+    }
+  }
+
+  /* ========================================================================
+     09. Subtle hero parallax
+     ======================================================================== */
+  const hero = document.querySelector(".hero");
+  const heroImage = hero?.querySelector(".hero-bg img");
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (hero && heroImage && canHover && !prefersReducedMotion) {
+    let pointerFrame = null;
+    hero.addEventListener("pointermove", event => {
+      if (pointerFrame) cancelAnimationFrame(pointerFrame);
+      pointerFrame = requestAnimationFrame(() => {
+        const bounds = hero.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * -8;
+        const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * -8;
+        heroImage.style.setProperty("--hero-x", `${x}px`);
+        heroImage.style.setProperty("--hero-y", `${y}px`);
+      });
+    });
+    hero.addEventListener("pointerleave", () => {
+      heroImage.style.setProperty("--hero-x", "0px");
+      heroImage.style.setProperty("--hero-y", "0px");
+    });
   }
 
   /* ==========================================================================
