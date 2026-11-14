@@ -3,19 +3,20 @@
    ========================================================================== */
 
 :root {
-  /* Colors */
-  --bg: #fafafa;
-  --bg-elevated: #ffffff;
-  --fg: #0a0a0a;
-  --fg-soft: #525252;
-  --fg-muted: #a3a3a3;
-  --accent: #0a0a0a;
-  --accent-hover: #262626;
-  --line: #e5e5e5;
-  --line-strong: #d4d4d4;
-  --card-bg: #ffffff;
-  --overlay: rgba(10, 10, 10, 0.6);
-  --overlay-strong: rgba(10, 10, 10, 0.85);
+  /* Colors — Van Gogh Bold Pastel Palette */
+  /* Inspired by: Starry Night, Sunflowers, Wheat Field, Irises */
+  --bg: #bec9d8;             /* dusty periwinkle — Starry Night sky */
+  --bg-elevated: #cad4e2;    /* soft cornflower blue */
+  --fg: #141c2d;             /* deep midnight ink */
+  --fg-soft: #2d3c58;        /* dark navy prose */
+  --fg-muted: #5a6e8a;       /* muted cobalt */
+  --accent: #c8911a;         /* sunflower gold */
+  --accent-hover: #a67414;   /* deep amber gold */
+  --line: #9eb0c4;           /* periwinkle border */
+  --line-strong: #7a96b2;    /* stronger blue border */
+  --card-bg: #cad4e2;        /* cornflower card */
+  --overlay: rgba(20, 28, 45, 0.42);
+  --overlay-strong: rgba(20, 28, 45, 0.72);
   
   /* Typography */
   --font-display: "Syne", system-ui, sans-serif;
@@ -65,22 +66,23 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0a0a0a;
-    --bg-elevated: #111111;
-    --fg: #fafafa;
-    --fg-soft: #a3a3a3;
-    --fg-muted: #737373;
-    --accent: #fafafa;
-    --accent-hover: #e5e5e5;
-    --line: #262626;
-    --line-strong: #404040;
-    --card-bg: #111111;
-    --overlay: rgba(0, 0, 0, 0.6);
-    --overlay-strong: rgba(0, 0, 0, 0.85);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
-    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5);
+    /* Dark mode: deep Starry Night night — rich indigo/midnight blue */
+    --bg: #0e1525;             /* deep midnight indigo */
+    --bg-elevated: #162035;    /* dark cobalt navy */
+    --fg: #d8e8f0;             /* pale sky blue-white */
+    --fg-soft: #90aac0;        /* soft periwinkle */
+    --fg-muted: #5a7898;       /* muted cobalt */
+    --accent: #d4a030;         /* richer sunflower gold */
+    --accent-hover: #b88020;   /* deep amber */
+    --line: #1e3050;           /* dark navy border */
+    --line-strong: #2a4068;    /* stronger navy border */
+    --card-bg: #162035;
+    --overlay: rgba(8, 12, 22, 0.52);
+    --overlay-strong: rgba(8, 12, 22, 0.8);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -1309,20 +1311,24 @@ section { padding: var(--space-4xl) var(--pad); }
 }
 
 /* ========================================================================
-   Editorial portfolio refresh
+   Editorial portfolio refresh — Van Gogh Bold Pastels
+   Starry Night periwinkle · Sunflower gold · Wheat earth · Iris violet
    ======================================================================== */
 :root {
   color-scheme: light;
-  --bg: #f5f3ee;
-  --bg-elevated: #fbfaf7;
-  --fg: #22231f;
-  --fg-soft: #67675f;
-  --fg-muted: #8b8a80;
-  --accent: #a9583d;
-  --accent-hover: #85432f;
-  --line: #e4e0d8;
-  --line-strong: #d2cdc3;
-  --card-bg: #fbfaf7;
+  /* ---- Base: Van Gogh's Starry Night sky in pastel ---- */
+  --bg: #bec9d8;             /* dusty periwinkle — Starry Night sky */
+  --bg-elevated: #cad4e2;    /* soft cornflower blue */
+  --fg: #141c2d;             /* deep midnight ink */
+  --fg-soft: #2d3c58;        /* dark navy prose */
+  --fg-muted: #5a6e8a;       /* muted cobalt */
+  /* ---- Accent: Van Gogh Sunflower gold ---- */
+  --accent: #c8911a;         /* sunflower gold */
+  --accent-hover: #a67414;   /* deep amber gold */
+  /* ---- Borders & Cards ---- */
+  --line: #9eb0c4;           /* periwinkle border */
+  --line-strong: #7a96b2;    /* stronger blue border */
+  --card-bg: #cad4e2;
   --max-w: 1380px;
   --pad: clamp(1.25rem, 5vw, 5rem);
   --font-display: "Syne", "Space Grotesk", sans-serif;
@@ -1342,13 +1348,13 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
   max-width: var(--max-w);
   margin-inline: auto;
   padding: .55rem .65rem .55rem 1rem;
-  border: 1px solid rgba(255,255,255,.28);
+  border: 1px solid rgba(255,255,255,.22);
   border-radius: 999px;
-  background: rgba(248,247,243,.92);
-  box-shadow: 0 8px 32px rgba(24,25,22,.08);
+  background: rgba(190,201,216,.88);
+  box-shadow: 0 8px 32px rgba(20,28,45,.14);
   backdrop-filter: blur(18px);
 }
-.site-header.scrolled { top: .65rem; padding: .45rem .65rem .45rem 1rem; background: rgba(248,247,243,.94); border: 1px solid var(--line); }
+.site-header.scrolled { top: .65rem; padding: .45rem .65rem .45rem 1rem; background: rgba(190,201,216,.96); border: 1px solid var(--line); }
 .brand { gap: .7rem; font-size: 1rem; letter-spacing: -.04em; }
 .brand-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; }
 .primary-nav { gap: .15rem; }
@@ -1367,7 +1373,7 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
 .hero-eyebrow, .section-eyebrow { letter-spacing: .16em; font-size: .68rem; }
 .hero-eyebrow { margin-bottom: 1.5rem; color: rgba(255,255,255,.78); }
 .hero-title { max-width: 1100px; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(3.7rem, 9.4vw, 7.5rem); letter-spacing: -.065em; line-height: .91; margin-bottom: 1.5rem; }
-.title-line--accent { color: #e9b499; font-style: italic; }
+.title-line--accent { color: #f5d080; font-style: italic; }
 .hero-desc { max-width: 38ch; margin-bottom: 2rem; color: rgba(255,255,255,.82); font-size: clamp(1rem, 1.2vw, 1.15rem); }
 .hero-actions { gap: .75rem; margin: 0; }
 .btn { padding: .9rem 1.35rem; border-radius: 999px; font-size: .82rem; letter-spacing: 0; }
@@ -1389,20 +1395,20 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
 .filter-bar { max-width: var(--max-w); margin: 0 auto 2rem; }
 .filters { justify-content: flex-start; gap: .45rem; }
 .filter-btn { padding: .55rem 1rem; border-color: var(--line); color: var(--fg-soft); font-size: .77rem; }
-.filter-btn:hover { background: #ebe8e0; }
-.filter-btn.is-active { color: #fff; background: var(--fg); border-color: var(--fg); }
+.filter-btn:hover { background: rgba(20,28,45,.1); }
+.filter-btn.is-active { color: #bec9d8; background: var(--fg); border-color: var(--fg); }
 .gallery { max-width: var(--max-w); grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(.7rem, 1.5vw, 1.25rem); }
 .work-card { grid-column: span 6; border-radius: 2px; }
 .work-card:nth-child(3n + 1) { grid-column: span 7; }
 .work-card:nth-child(3n + 2) { grid-column: span 5; }
-.work-media { aspect-ratio: 1.25; background: #d7d3ca; }
+.work-media { aspect-ratio: 1.25; background: #8fa8c0; }
 .work-card:nth-child(3n + 2) .work-media { aspect-ratio: .98; }
 .work-media img { filter: saturate(.88); transition: transform 900ms cubic-bezier(.2,.7,.2,1), filter 700ms ease, opacity 500ms ease; }
 .work-card:hover .work-media img { transform: scale(1.045); filter: saturate(1.04); }
 .work-overlay { opacity: 1; align-items: flex-end; padding: 1.2rem 1.3rem; background: linear-gradient(0deg, rgba(15,18,16,.72), transparent 62%); }
 .work-info { transform: translateY(5px); transition: transform 350ms ease; }
 .work-card:hover .work-info { transform: translateY(0); }
-.work-cat { color: #f0b59a; letter-spacing: .14em; font-size: .62rem; }
+.work-cat { color: #f5d080; letter-spacing: .14em; font-size: .62rem; }
 .work-title { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(1.4rem, 2.6vw, 2.1rem); }
 .work-location { font-size: .72rem; }
 .work-expand { border: 1px solid rgba(255,255,255,.7); border-radius: 50%; width: 38px; height: 38px; }
@@ -1412,9 +1418,9 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
 .interlude-bg img { filter: brightness(.58) saturate(.72); }
 .interlude-content { max-width: 850px; }
 .interlude blockquote p { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1.08; letter-spacing: -.04em; }
-.interlude cite { color: #efb89e; letter-spacing: .15em; }
+.interlude cite { color: #f5d080; letter-spacing: .15em; }
 
-.about { background: #eeece5; }
+.about { background: #c4b888; }  /* Van Gogh wheat field — warm golden ochre */
 .about-grid { max-width: var(--max-w); grid-template-columns: .92fr 1fr; gap: clamp(3rem, 8vw, 8rem); align-items: center; }
 .about-image { border-radius: 2px; aspect-ratio: 4/5; }
 .about-content { padding: 0; }
@@ -1435,7 +1441,7 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
 .journal-excerpt { color: var(--fg-soft); font-size: .88rem; }
 .journal-meta { font-size: .72rem; }
 
-.contact { background: #eeece5; }
+.contact { background: #c4b888; }  /* matching wheat gold */
 .contact-grid { max-width: var(--max-w); gap: clamp(3rem, 9vw, 9rem); }
 .contact-info { padding: 0; }
 .contact-desc { max-width: 38ch; font-size: 1rem; }
@@ -1444,13 +1450,13 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
 .contact-form { gap: 1.1rem; }
 .form-group { gap: .45rem; }
 .form-group label { color: var(--fg-soft); font-size: .72rem; }
-.form-group input, .form-group select, .form-group textarea { padding: .85rem 1rem; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: rgba(251,250,247,.72); font-size: .9rem; }
+.form-group input, .form-group select, .form-group textarea { padding: .85rem 1rem; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: rgba(190,201,216,.55); font-size: .9rem; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 2px 0 var(--accent); }
-.site-footer { background: var(--fg); color: #f5f3ee; border: 0; }
+.site-footer { background: #0e1525; color: #bec9d8; border: 0; }
 .footer-content { max-width: var(--max-w); }
 .footer-mark { background: var(--accent); border-radius: 50%; }
-.footer-nav a, .footer-copy { color: rgba(245,243,238,.65); }
-.footer-nav a:hover { color: #fff; }
+.footer-nav a, .footer-copy { color: rgba(190,201,216,.6); }
+.footer-nav a:hover { color: #d8e8f0; }
 
 .lightbox { background: rgba(20,21,19,.97); }
 .reader-panel { background: var(--bg); }
@@ -1521,7 +1527,7 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
   inset: 6.5rem 0 4rem 53%;
   overflow: hidden;
   border-radius: 3px 0 0 3px;
-  background: #dad5cc;
+  background: #7a9ab8;
 }
 .hero-bg img { object-position: center 42%; }
 .hero-overlay { background: linear-gradient(0deg, rgba(20,22,20,.22), transparent 38%); }
@@ -1540,7 +1546,7 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
 .title-line--accent { color: var(--accent); }
 .hero-desc { color: var(--fg-soft); opacity: 1; max-width: 35ch; }
 .btn-secondary { color: var(--fg); border-color: var(--line-strong); }
-.btn-secondary:hover { background: #ebe8e0; border-color: var(--line-strong); }
+.btn-secondary:hover { background: rgba(20,28,45,.12); border-color: var(--line-strong); }
 .hero-scroll { display: none; }
 .hero-stats {
   position: relative;
