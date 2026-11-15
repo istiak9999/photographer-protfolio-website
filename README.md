@@ -28,6 +28,12 @@ The page uses a sample photographer identity and sample portfolio copy. Replace 
 
 There is no build step, framework, package manager, or JavaScript dependency required.
 
+## Contact
+
+For inquiries, collaborations, or bookings:
+
+- Email: istiakahmedkhan.official@gmail.com
+
 ## Run locally
 
 You can open `index.html` directly in a modern browser. For a more representative local setup, serve the project folder over HTTP:
@@ -117,4 +123,6 @@ Use a current browser with JavaScript enabled. If images are missing, check that
 
 ## License and image rights
 
-No license is specified in this project. Before reusing or distributing the code, images, fonts, or other assets, verify the applicable license and permissions. Replace the sample portfolio images and content with assets you are authorized to use.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for the full text.
+
+The source code and project files are covered by the MIT license. Third-party images, fonts, and other assets may carry their own licensing terms, so please verify permissions before reusing them in your own work.

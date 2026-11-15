@@ -1622,3 +1622,494 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
   .section-header .section-eyebrow { margin-bottom: .4rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ==========================================================================
+   Van Gogh Interactive Animations — Supporting Styles
+   ========================================================================== */
+
+/* Starry canvas sits behind hero content */
+#starry-canvas {
+  mix-blend-mode: screen;
+  border-radius: inherit;
+}
+
+/* Card shimmer on tilt (magnetic effect) */
+.work-card,
+.journal-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.work-card::after,
+.journal-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 220, 120, 0.12) calc(var(--shimmer-x, 50%) - 10%),
+    rgba(255, 230, 150, 0.22) var(--shimmer-x, 50%),
+    rgba(255, 220, 120, 0.12) calc(var(--shimmer-x, 50%) + 10%),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.work-card:hover::after,
+.journal-card:hover::after {
+  opacity: 1;
+}
+
+/* Cursor canvas — only on pointer devices */
+@media (hover: none) {
+  #cursor-canvas,
+  #ripple-canvas { display: none; }
+}
+
+/* Smooth section relative positioning for brush sweeps */
+section { isolation: isolate; }
+
+/* Scroll-brush sweep line pulse keyframe */
+@keyframes vg-sweep {
+  0%   { left: -100%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+
+/* ==========================================================================
+   Photo Interactions — Like + Comment Styles
+   Van Gogh palette: cobalt blue · sunflower gold · midnight ink
+   ========================================================================== */
+
+/* ── Interaction bar on each card ───────────────────────────────────────── */
+.photo-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.9rem;
+  background: linear-gradient(0deg, rgba(20,28,45,0.82) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.work-card:hover .photo-bar,
+.work-card:focus-within .photo-bar {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Always show bar on touch devices */
+@media (hover: none) {
+  .photo-bar {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    background: linear-gradient(0deg, rgba(20,28,45,0.70) 0%, transparent 100%);
+  }
+}
+
+.photo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.55rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s ease, transform 0.15s ease, color 0.15s ease;
+  letter-spacing: 0.03em;
+}
+
+.photo-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.photo-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.06);
+}
+
+/* Liked state */
+.like-btn.is-liked {
+  color: #f5d080;
+  border-color: rgba(245,208,128,0.4);
+  background: rgba(200,145,26,0.25);
+}
+
+.like-btn.is-liked svg { fill: #f5d080; stroke: none; }
+
+/* Pop animation on like */
+@keyframes like-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+.like-btn.like-pop { animation: like-pop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+/* Send button pop */
+@keyframes send-pop {
+  0%   { transform: scale(1) rotate(0deg); }
+  50%  { transform: scale(1.3) rotate(-15deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.cpanel-send.send-pop { animation: send-pop 0.3s ease both; }
+
+/* ── Heart burst animations ─────────────────────────────────────────────── */
+.heart-burst-big,
+.heart-burst-mini {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.heart-burst-big svg,
+.heart-burst-mini svg { display: block; }
+
+/* Big centre heart */
+@keyframes heart-big {
+  0%   { opacity: 0;   transform: translate(-50%, -50%) scale(0); }
+  25%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.5); }
+  55%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+  75%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.25); }
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(0.9); }
+}
+.heart-burst-big {
+  width: 72px; height: 72px;
+  animation: heart-big 0.85s cubic-bezier(0.34,1.56,0.64,1) both;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+.heart-burst-big svg { width: 72px; height: 72px; }
+
+/* Mini scatter hearts */
+@keyframes heart-mini {
+  0%   { opacity: 0.9; transform: translate(-50%, -50%) scale(0.5); }
+  60%  { opacity: 0.8; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); }
+  100% { opacity: 0;   transform: translate(calc(-50% + var(--tx) * 1.4), calc(-50% + var(--ty) * 1.4)) scale(0.3); }
+}
+.heart-burst-mini {
+  width: 22px; height: 22px;
+  animation: heart-mini 0.75s cubic-bezier(0.22,0.61,0.36,1) both;
+}
+.heart-burst-mini svg { width: 22px; height: 22px; }
+
+/* +1 float */
+@keyframes plus-one {
+  0%   { opacity: 1;   transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0;   transform: translate(-50%, -150%) scale(0.7); }
+}
+.heart-plus-one {
+  position: absolute;
+  pointer-events: none;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f5d080;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transform: translate(-50%, -50%);
+  z-index: 21;
+  animation: plus-one 0.75s cubic-bezier(0.22,0.61,0.36,1) both;
+}
+
+/* Hint text: double-tap to like */
+.work-media::after {
+  content: "Double-tap to like";
+  position: absolute;
+  bottom: 56px; left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.7);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 6;
+}
+
+.work-card:hover .work-media::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (hover: none) {
+  .work-media::after { display: none; }
+}
+
+/* ── Comment Panel ──────────────────────────────────────────────────────── */
+#comment-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#comment-panel.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cpanel-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(14,21,37,0.6);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+#comment-panel.is-open .cpanel-backdrop { opacity: 1; }
+
+.cpanel-sheet {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 540px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: #1c2540;
+  border-radius: 20px 20px 0 0;
+  border: 1px solid rgba(107,150,184,0.3);
+  border-bottom: 0;
+  box-shadow: 0 -16px 60px rgba(14,21,37,0.5);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.34,1.1,0.64,1);
+  overflow: hidden;
+}
+
+#comment-panel.is-open .cpanel-sheet { transform: translateY(0); }
+
+/* drag handle */
+.cpanel-sheet::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 4px;
+  background: rgba(190,201,216,0.3);
+  border-radius: 2px;
+  margin: 10px auto 0;
+  flex-shrink: 0;
+}
+
+.cpanel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem 0.8rem;
+  border-bottom: 1px solid rgba(107,150,184,0.2);
+  flex-shrink: 0;
+}
+
+.cpanel-photo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.cpanel-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #d8e8f0;
+  line-height: 1.2;
+}
+
+.cpanel-loc {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(190,201,216,0.55);
+}
+
+.cpanel-close {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  background: rgba(190,201,216,0.1);
+  border: 1px solid rgba(190,201,216,0.15);
+  border-radius: 50%;
+  color: rgba(190,201,216,0.7);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+.cpanel-close svg { width: 16px; height: 16px; }
+.cpanel-close:hover { background: rgba(190,201,216,0.2); color: #d8e8f0; transform: rotate(90deg); }
+
+/* scrollable comment list */
+.cpanel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.8rem 1.2rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(107,150,184,0.3) transparent;
+}
+
+.cpanel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cpanel-comment {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  animation: comment-in 0.3s cubic-bezier(0.34,1.2,0.64,1) both;
+}
+
+@keyframes comment-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cpanel-comment-body { flex: 1; }
+
+.cpanel-comment-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cpanel-comment-meta strong {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d8e8f0;
+}
+
+.cpanel-comment-meta span {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  color: rgba(190,201,216,0.45);
+}
+
+.cpanel-comment-body p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(216,232,240,0.85);
+}
+
+.cpanel-empty {
+  margin: 1.5rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(190,201,216,0.4);
+  font-style: italic;
+}
+
+/* Avatar */
+.cpanel-avatar {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--av-color, #c8911a);
+  color: #141c2d;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.cpanel-avatar.sm {
+  width: 32px; height: 32px;
+  min-width: 32px;
+  font-size: 0.6rem;
+}
+
+/* Input footer */
+.cpanel-footer {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  padding: 0.8rem 1.2rem calc(0.8rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba(107,150,184,0.2);
+  background: rgba(14,21,37,0.4);
+  flex-shrink: 0;
+}
+
+.cpanel-input-wrap { flex: 1; }
+
+.cpanel-input {
+  width: 100%;
+  min-height: 40px;
+  max-height: 120px;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #d8e8f0;
+  background: rgba(190,201,216,0.1);
+  border: 1px solid rgba(107,150,184,0.25);
+  border-radius: 20px;
+  resize: none;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  line-height: 1.5;
+}
+
+.cpanel-input::placeholder { color: rgba(190,201,216,0.35); }
+
+.cpanel-input:focus {
+  outline: none;
+  border-color: rgba(200,145,26,0.6);
+  background: rgba(190,201,216,0.14);
+}
+
+.cpanel-send {
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  min-width: 40px;
+  background: #c8911a;
+  border-radius: 50%;
+  color: #141c2d;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+}
+.cpanel-send svg { width: 17px; height: 17px; }
+.cpanel-send:hover { background: #d4a030; transform: scale(1.1); }
+
+/* Comment count badge colour */
+.comment-count { color: rgba(255,255,255,0.7); }
