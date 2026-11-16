@@ -1666,10 +1666,162 @@ section { padding: clamp(5rem, 10vw, 9rem) var(--pad); }
   opacity: 1;
 }
 
-/* Cursor canvas — only on pointer devices */
+/* Canvases & Viewfinder — only on pointer devices */
+#brush-ribbon-canvas {
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-color-scheme: dark) {
+  #brush-ribbon-canvas {
+    mix-blend-mode: screen;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Photographer's Camera Lens Viewfinder Reticle
+   ══════════════════════════════════════════════════════════════════════════ */
+#lens-viewfinder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  margin-top: -16px;
+  pointer-events: none;
+  z-index: 10001;
+  opacity: 0;
+  transition: opacity 0.25s ease, width 0.25s cubic-bezier(0.34, 1.3, 0.64, 1), height 0.25s cubic-bezier(0.34, 1.3, 0.64, 1), margin 0.25s cubic-bezier(0.34, 1.3, 0.64, 1);
+  will-change: transform;
+}
+
+#lens-viewfinder.is-visible {
+  opacity: 1;
+}
+
+/* L-shaped autofocus brackets */
+.vf-corner {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-color: rgba(200, 145, 26, 0.85);
+  border-style: solid;
+  transition: border-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.vf-tl { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+.vf-tr { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+.vf-bl { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+.vf-br { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+
+/* Micro focal dot */
+.vf-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  margin-left: -1.5px;
+  margin-top: -1.5px;
+  border-radius: 50%;
+  background: #e2a82b;
+  box-shadow: 0 0 6px rgba(226, 168, 43, 0.6);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Rotating optical focus ring */
+.vf-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(200, 145, 26, 0.35);
+  opacity: 0;
+  transform: scale(0.7) rotate(0deg);
+  transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* AF Lock indicator badge */
+.vf-badge {
+  position: absolute;
+  top: -14px;
+  right: -8px;
+  font-family: var(--font-ui), monospace, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  color: #e2a82b;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Photo Focus Mode — Camera locks target */
+#lens-viewfinder.focus-photo {
+  width: 48px;
+  height: 48px;
+  margin-left: -24px;
+  margin-top: -24px;
+}
+
+#lens-viewfinder.focus-photo .vf-corner {
+  width: 10px;
+  height: 10px;
+  border-color: #f5d080;
+  filter: drop-shadow(0 0 4px rgba(245, 208, 128, 0.6));
+}
+
+#lens-viewfinder.focus-photo .vf-ring {
+  opacity: 1;
+  transform: scale(1) rotate(90deg);
+  border-color: rgba(245, 208, 128, 0.5);
+}
+
+#lens-viewfinder.focus-photo .vf-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive Link/Button Mode — Subtle focal circle */
+#lens-viewfinder.focus-btn {
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+#lens-viewfinder.focus-btn .vf-corner {
+  border-color: #6b96b8;
+}
+
+#lens-viewfinder.focus-btn .vf-ring {
+  opacity: 0.8;
+  transform: scale(0.95);
+  border-color: rgba(107, 150, 184, 0.55);
+}
+
+#lens-viewfinder.focus-btn .vf-crosshair {
+  background: #6b96b8;
+  box-shadow: 0 0 6px rgba(107, 150, 184, 0.8);
+}
+
+/* Shutter snap on click */
+#lens-viewfinder.shutter-snap {
+  width: 20px !important;
+  height: 20px !important;
+  margin-left: -10px !important;
+  margin-top: -10px !important;
+  transition: width 0.08s ease, height 0.08s ease, margin 0.08s ease;
+}
+
+#lens-viewfinder.shutter-snap .vf-corner {
+  border-color: #ffffff !important;
+  filter: drop-shadow(0 0 8px #ffffff);
+}
+
 @media (hover: none) {
-  #cursor-canvas,
-  #ripple-canvas { display: none; }
+  #brush-ribbon-canvas,
+  #optics-click-canvas,
+  #lens-viewfinder { display: none !important; }
 }
 
 /* Smooth section relative positioning for brush sweeps */

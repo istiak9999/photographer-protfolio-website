@@ -1,11 +1,13 @@
 /**
- * Van Gogh Interactive Animations
+ * Van Gogh & Photography Interactive Animations
  * ─────────────────────────────────────────────────────────────────────────────
- * 1. Starry Night Canvas  — swirling particles behind the hero section
- * 2. Paintbrush Cursor    — golden paint-stroke trail that follows the mouse
- * 3. Floating Dust Motes  — ambient drifting particles on scroll sections
- * 4. Magnetic Tilt Cards  — work cards tilt to follow the mouse (perspective)
- * 5. Brush-stroke Counter — count-up numbers animate with a watercolour pulse
+ * 1. Starry Night Hero Canvas    — Impressionist swirling sky in the hero
+ * 2. Fluid Oil-Brush Ribbon      — Seamless calligraphic paint ribbon on mouse move (NO dots!)
+ * 3. Camera Lens Viewfinder      — Interactive photographer reticle with AF-lock on photos
+ * 4. Impressionist Wind Swirls   — Elegant painterly wind lines in content sections
+ * 5. Magnetic Tilt Cards         — 3D perspective tilt with golden sheen
+ * 6. Shutter Aperture Pulse      — Clean photographer light-flare on click (no splatter dots)
+ * 7. Section Brush Sweep         — Gradient stroke wipe on scroll reveal
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
@@ -18,17 +20,18 @@
     deepblue:   "#3a6080",
     periwinkle: "#bec9d8",
     sunflower:  "#c8911a",
+    sunGold:    "#e2a82b",
     wheat:      "#d4c47a",
     straw:      "#e8d8a0",
     midnight:   "#141c2d",
     iris:       "#7b5ea8",
     sage:       "#7a9870",
-    white:      "rgba(255,255,255,0.85)",
+    white:      "rgba(255,255,255,0.9)",
   };
 
   /* ══════════════════════════════════════════════════════════════════════════
      1. STARRY NIGHT HERO CANVAS
-     Swirling Van Gogh-style particles in the hero background
+     Swirling brushstroke streams and luminous celestial glow in hero
   ══════════════════════════════════════════════════════════════════════════ */
   function initStarryNight() {
     const heroSection = document.querySelector(".hero");
@@ -49,7 +52,9 @@
     heroSection.insertBefore(canvas, heroSection.firstChild);
 
     const ctx = canvas.getContext("2d");
-    let W, H, stars, mouse = { x: -999, y: -999 };
+    let W, H;
+    let stars = [];
+    let streams = [];
 
     const starColors = [
       VG.sunflower, VG.wheat, VG.straw, VG.white,
@@ -63,36 +68,24 @@
         this.x  = Math.random() * W;
         this.y  = initial ? Math.random() * H : -10;
         this.r  = Math.random() * 2.2 + 0.4;
-        this.vx = (Math.random() - 0.5) * 0.35;
-        this.vy = Math.random() * 0.4 + 0.1;
-        this.alpha = Math.random() * 0.7 + 0.3;
+        this.vx = (Math.random() - 0.5) * 0.25;
+        this.vy = Math.random() * 0.35 + 0.08;
+        this.alpha = Math.random() * 0.65 + 0.25;
         this.pulse = Math.random() * Math.PI * 2;
-        this.pulseSpeed = Math.random() * 0.025 + 0.008;
+        this.pulseSpeed = Math.random() * 0.02 + 0.008;
         this.color = starColors[Math.floor(Math.random() * starColors.length)];
-        // swirl parameters
         this.angle = Math.random() * Math.PI * 2;
-        this.swirlR = Math.random() * 60 + 20;
-        this.swirlSpeed = (Math.random() - 0.5) * 0.012;
+        this.swirlR = Math.random() * 50 + 15;
+        this.swirlSpeed = (Math.random() - 0.5) * 0.01;
         this.cx = this.x; this.cy = this.y;
       }
 
       update() {
         this.pulse += this.pulseSpeed;
         this.angle += this.swirlSpeed;
-
-        // Swirl motion
-        this.x = this.cx + Math.cos(this.angle) * this.swirlR * 0.3;
+        this.x = this.cx + Math.cos(this.angle) * this.swirlR * 0.25;
         this.y += this.vy;
         this.cx += this.vx;
-
-        // Mouse repel
-        const dx = this.x - mouse.x, dy = this.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 90) {
-          const force = (90 - dist) / 90;
-          this.cx += (dx / dist) * force * 1.4;
-          this.y   += (dy / dist) * force * 0.7;
-        }
 
         if (this.y > H + 10 || this.cx < -50 || this.cx > W + 50) this.reset();
       }
@@ -101,7 +94,6 @@
         const a = this.alpha * (0.7 + 0.3 * Math.sin(this.pulse));
         ctx.save();
         ctx.globalAlpha = a;
-        // glow
         const grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 3.5);
         grd.addColorStop(0, this.color);
         grd.addColorStop(1, "transparent");
@@ -109,8 +101,8 @@
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r * 3.5, 0, Math.PI * 2);
         ctx.fill();
-        // core
-        ctx.globalAlpha = Math.min(a * 1.4, 1);
+
+        ctx.globalAlpha = Math.min(a * 1.3, 1);
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
@@ -119,23 +111,22 @@
       }
     }
 
-    /* Swirl streams — Van Gogh's distinctive brushstroke curves */
     class SwirlStream {
       constructor() { this.reset(); }
       reset() {
         this.x = Math.random() * W;
         this.y = Math.random() * H;
         this.pts = [];
-        this.maxPts = Math.floor(Math.random() * 40 + 20);
+        this.maxPts = Math.floor(Math.random() * 45 + 20);
         this.angle = Math.random() * Math.PI * 2;
-        this.speed = Math.random() * 1.2 + 0.4;
-        this.turn  = (Math.random() - 0.5) * 0.08;
+        this.speed = Math.random() * 1.1 + 0.35;
+        this.turn  = (Math.random() - 0.5) * 0.06;
         this.color = [VG.cobalt, VG.deepblue, VG.periwinkle, VG.midnight][Math.floor(Math.random() * 4)];
         this.alpha = Math.random() * 0.12 + 0.04;
-        this.width = Math.random() * 2.5 + 0.5;
+        this.width = Math.random() * 2.5 + 0.6;
       }
       update() {
-        this.angle += this.turn + Math.sin(Date.now() * 0.0003 + this.x * 0.01) * 0.04;
+        this.angle += this.turn + Math.sin(Date.now() * 0.0003 + this.x * 0.01) * 0.035;
         this.x += Math.cos(this.angle) * this.speed;
         this.y += Math.sin(this.angle) * this.speed;
         this.pts.push({ x: this.x, y: this.y });
@@ -169,27 +160,17 @@
 
     function init() {
       resize();
-      const count = Math.min(Math.floor(W * H / 5000), 160);
+      const count = Math.min(Math.floor(W * H / 6500), 110);
       stars   = Array.from({ length: count }, () => new Star());
-      streams = Array.from({ length: 18 }, () => new SwirlStream());
+      streams = Array.from({ length: 16 }, () => new SwirlStream());
     }
-
-    let streams = [];
-    let raf;
 
     function loop() {
       ctx.clearRect(0, 0, W, H);
       streams.forEach(s => { s.update(); s.draw(); });
       stars.forEach(s => { s.update(); s.draw(); });
-      raf = requestAnimationFrame(loop);
+      requestAnimationFrame(loop);
     }
-
-    heroSection.addEventListener("mousemove", e => {
-      const rect = heroSection.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    });
-    heroSection.addEventListener("mouseleave", () => { mouse.x = -999; mouse.y = -999; });
 
     const ro = new ResizeObserver(() => { resize(); });
     ro.observe(heroSection);
@@ -199,22 +180,22 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     2. PAINTBRUSH CURSOR TRAIL
-     Golden paint strokes follow the mouse across the whole page
+     2. FLUID OIL-BRUSH RIBBON (REPLACES DOT PARTICLES)
+     A continuous, smooth painterly oil stroke follows mouse motion gracefully.
+     Dynamically varies thickness with movement velocity, blending gold & cobalt.
   ══════════════════════════════════════════════════════════════════════════ */
-  function initCursorTrail() {
-    if (window.matchMedia("(hover: none)").matches) return; // skip on touch
+  function initFluidBrushRibbon() {
+    if (window.matchMedia("(hover: none)").matches) return;
 
     const canvas = document.createElement("canvas");
-    canvas.id = "cursor-canvas";
+    canvas.id = "brush-ribbon-canvas";
     canvas.style.cssText = `
       position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 9999;
-      mix-blend-mode: multiply;
+      z-index: 9997;
     `;
     document.body.appendChild(canvas);
 
@@ -222,88 +203,188 @@
     let W = canvas.width  = window.innerWidth;
     let H = canvas.height = window.innerHeight;
 
-    const trailColors = [
-      VG.sunflower, VG.wheat, VG.cobalt,
-      VG.iris, VG.sage, VG.straw,
-    ];
-
-    class PaintDrop {
-      constructor(x, y) {
-        this.x     = x;
-        this.y     = y;
-        this.vx    = (Math.random() - 0.5) * 1.8;
-        this.vy    = (Math.random() - 0.5) * 1.8 - 0.5;
-        this.r     = Math.random() * 5 + 2;
-        this.life  = 1;
-        this.decay = Math.random() * 0.025 + 0.018;
-        this.color = trailColors[Math.floor(Math.random() * trailColors.length)];
-        // squash/stretch for brushstroke feel
-        this.scaleX = Math.random() * 1.5 + 0.5;
-        this.scaleY = Math.random() * 0.6 + 0.3;
-        this.rot    = Math.random() * Math.PI;
-      }
-      update() {
-        this.x    += this.vx;
-        this.y    += this.vy;
-        this.vy   += 0.04; // gravity drip
-        this.life -= this.decay;
-        this.r    *= 0.985;
-      }
-      draw() {
-        ctx.save();
-        ctx.globalAlpha = this.life * 0.55;
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rot);
-        ctx.scale(this.scaleX, this.scaleY);
-        const grd = ctx.createRadialGradient(0, 0, 0, 0, 0, this.r);
-        grd.addColorStop(0, this.color);
-        grd.addColorStop(1, "transparent");
-        ctx.fillStyle = grd;
-        ctx.beginPath();
-        ctx.arc(0, 0, this.r, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-      get dead() { return this.life <= 0; }
-    }
-
-    let drops = [];
-    let lastX = -999, lastY = -999;
-    let frame = 0;
-
-    document.addEventListener("mousemove", e => {
-      const dx = e.clientX - lastX, dy = e.clientY - lastY;
-      const speed = Math.sqrt(dx * dx + dy * dy);
-      if (speed > 2) {
-        const count = Math.min(Math.floor(speed / 4) + 1, 5);
-        for (let i = 0; i < count; i++) drops.push(new PaintDrop(e.clientX, e.clientY));
-      }
-      lastX = e.clientX; lastY = e.clientY;
-    });
+    let points = [];
+    let lastX = -1, lastY = -1;
+    let lastTime = Date.now();
 
     window.addEventListener("resize", () => {
       W = canvas.width  = window.innerWidth;
       H = canvas.height = window.innerHeight;
     });
 
-    function loop() {
+    document.addEventListener("mousemove", e => {
+      const now = Date.now();
+      const dt = Math.max(now - lastTime, 16);
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (lastX < 0 || dist > 2) {
+        // Calculate velocity-driven stroke width (faster = thinner calligraphic taper)
+        const speed = dist / dt;
+        const targetWidth = Math.max(3.5, Math.min(18, 16 - speed * 3.5));
+
+        points.push({
+          x: e.clientX,
+          y: e.clientY,
+          time: now,
+          width: targetWidth,
+        });
+
+        lastX = e.clientX;
+        lastY = e.clientY;
+        lastTime = now;
+      }
+    });
+
+    document.addEventListener("mouseleave", () => {
+      lastX = -1;
+      lastY = -1;
+    });
+
+    const RIBBON_LIFETIME = 520; // milliseconds
+
+    function renderRibbon() {
       ctx.clearRect(0, 0, W, H);
-      drops = drops.filter(d => !d.dead);
-      drops.forEach(d => { d.update(); d.draw(); });
-      requestAnimationFrame(loop);
+      const now = Date.now();
+
+      // Prune old points
+      points = points.filter(p => now - p.time < RIBBON_LIFETIME);
+
+      if (points.length >= 2) {
+        for (let i = 1; i < points.length; i++) {
+          const p0 = points[i - 1];
+          const p1 = points[i];
+          const ageRatio = (now - p1.time) / RIBBON_LIFETIME;
+          const alpha = Math.max(0, (1 - ageRatio) * 0.65);
+
+          if (alpha <= 0.01) continue;
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(p0.x, p0.y);
+          ctx.lineTo(p1.x, p1.y);
+
+          // Van Gogh dual-tone gradient along the stroke
+          const grad = ctx.createLinearGradient(p0.x, p0.y, p1.x, p1.y);
+          grad.addColorStop(0, `rgba(200, 145, 26, ${alpha})`);           // sunflower gold
+          grad.addColorStop(0.5, `rgba(226, 168, 43, ${alpha * 0.95})`); // warm amber
+          grad.addColorStop(1, `rgba(107, 150, 184, ${alpha * 0.85})`);   // starry cobalt
+
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = p1.width * (1 - ageRatio * 0.4);
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          ctx.stroke();
+
+          // Inner luminous core stroke
+          ctx.beginPath();
+          ctx.moveTo(p0.x, p0.y);
+          ctx.lineTo(p1.x, p1.y);
+          ctx.strokeStyle = `rgba(255, 248, 220, ${alpha * 0.5})`;
+          ctx.lineWidth = Math.max(1.2, p1.width * 0.35);
+          ctx.stroke();
+
+          ctx.restore();
+        }
+      }
+
+      requestAnimationFrame(renderRibbon);
     }
 
-    if (!reduced) loop();
+    if (!reduced) renderRibbon();
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     3. FLOATING AMBIENT PARTICLES (Dust Motes)
-     Gentle floating painted dots in the work/journal sections
+     3. CAMERA LENS VIEWFINDER (PHOTOGRAPHER FOCUS RETICLE)
+     An interactive optical focus ring & viewfinder brackets that smoothly track
+     the cursor, lock focus on photos [AF-LOCK], and snap shutter on click.
   ══════════════════════════════════════════════════════════════════════════ */
-  function initAmbientParticles() {
+  function initViewfinderCursor() {
+    if (window.matchMedia("(hover: none)").matches) return;
+
+    const reticle = document.createElement("div");
+    reticle.id = "lens-viewfinder";
+    reticle.innerHTML = `
+      <div class="vf-corner vf-tl"></div>
+      <div class="vf-corner vf-tr"></div>
+      <div class="vf-corner vf-bl"></div>
+      <div class="vf-corner vf-br"></div>
+      <div class="vf-crosshair"></div>
+      <div class="vf-ring"></div>
+      <div class="vf-badge">AF</div>
+    `;
+    document.body.appendChild(reticle);
+
+    let mouseX = -100, mouseY = -100;
+    let curX = -100, curY = -100;
+    let isVisible = false;
+
+    document.addEventListener("mousemove", e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!isVisible) {
+        curX = mouseX;
+        curY = mouseY;
+        isVisible = true;
+        reticle.classList.add("is-visible");
+      }
+    });
+
+    document.addEventListener("mouseleave", () => {
+      isVisible = false;
+      reticle.classList.remove("is-visible");
+    });
+
+    // Detect hover over gallery photos vs buttons
+    document.addEventListener("mouseover", e => {
+      const card = e.target.closest(".work-card, .work-media");
+      const btn = e.target.closest("a, button, .btn, .filter-btn, input, textarea, select");
+
+      if (card) {
+        reticle.classList.add("focus-photo");
+      } else {
+        reticle.classList.remove("focus-photo");
+      }
+
+      if (btn && !card) {
+        reticle.classList.add("focus-btn");
+      } else {
+        reticle.classList.remove("focus-btn");
+      }
+    });
+
+    // Camera shutter snap on click
+    document.addEventListener("mousedown", () => {
+      reticle.classList.add("shutter-snap");
+    });
+    document.addEventListener("mouseup", () => {
+      setTimeout(() => reticle.classList.remove("shutter-snap"), 180);
+    });
+
+    // Smooth spring physics loop
+    function updateReticle() {
+      if (isVisible) {
+        curX += (mouseX - curX) * 0.22;
+        curY += (mouseY - curY) * 0.22;
+        reticle.style.transform = `translate3d(${curX}px, ${curY}px, 0)`;
+      }
+      requestAnimationFrame(updateReticle);
+    }
+
+    if (!reduced) updateReticle();
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     4. IMPRESSIONIST WIND SWIRLS (REPLACES DUST DOTS IN SECTIONS)
+     Soft, flowing painterly brush curves that drift peacefully through
+     content sections, recalling Van Gogh's waving cypress & wheat currents.
+  ══════════════════════════════════════════════════════════════════════════ */
+  function initImpressionistWind() {
     const sections = document.querySelectorAll(".work, .journal, .about");
     sections.forEach(section => {
       const canvas = document.createElement("canvas");
+      canvas.className = "section-wind-canvas";
       canvas.style.cssText = `
         position: absolute;
         inset: 0;
@@ -311,7 +392,7 @@
         height: 100%;
         pointer-events: none;
         z-index: 0;
-        opacity: 0.4;
+        opacity: 0.35;
       `;
       if (getComputedStyle(section).position === "static") {
         section.style.position = "relative";
@@ -320,40 +401,53 @@
 
       const ctx = canvas.getContext("2d");
       let W, H;
-      const colors = [VG.sunflower, VG.wheat, VG.cobalt, VG.iris, VG.sage];
 
-      class Mote {
+      const colors = [VG.sunflower, VG.wheat, VG.cobalt, VG.periwinkle, VG.straw];
+
+      class WindArc {
         constructor() { this.reset(true); }
+
         reset(initial = false) {
-          this.x     = Math.random() * W;
-          this.y     = initial ? Math.random() * H : H + 10;
-          this.r     = Math.random() * 3 + 1;
-          this.vx    = (Math.random() - 0.5) * 0.3;
-          this.vy    = -(Math.random() * 0.4 + 0.1);
-          this.alpha = Math.random() * 0.5 + 0.2;
-          this.pulse = Math.random() * Math.PI * 2;
+          this.x = Math.random() * W;
+          this.y = initial ? Math.random() * H : H + 20;
+          this.len = Math.random() * 70 + 40;
+          this.curve = (Math.random() - 0.5) * 35;
+          this.vx = Math.random() * 0.4 + 0.15;
+          this.vy = -(Math.random() * 0.5 + 0.2);
+          this.width = Math.random() * 1.8 + 0.8;
+          this.alpha = Math.random() * 0.3 + 0.1;
           this.color = colors[Math.floor(Math.random() * colors.length)];
-          this.wobble = Math.random() * 0.02;
+          this.angle = Math.random() * Math.PI * 2;
         }
+
         update() {
-          this.pulse += 0.012;
-          this.x += this.vx + Math.sin(this.pulse * 2) * this.wobble * 10;
+          this.angle += 0.012;
+          this.x += this.vx + Math.sin(this.angle) * 0.4;
           this.y += this.vy;
-          if (this.y < -10) this.reset();
+          if (this.y < -this.len || this.x > W + 50) this.reset();
         }
+
         draw() {
-          const a = this.alpha * (0.6 + 0.4 * Math.sin(this.pulse));
           ctx.save();
-          ctx.globalAlpha = a;
-          ctx.fillStyle = this.color;
+          ctx.globalAlpha = this.alpha;
+          ctx.strokeStyle = this.color;
+          ctx.lineWidth = this.width;
+          ctx.lineCap = "round";
+
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.moveTo(this.x, this.y);
+          ctx.quadraticCurveTo(
+            this.x + this.len * 0.5,
+            this.y + this.curve,
+            this.x + this.len,
+            this.y - 12
+          );
+          ctx.stroke();
           ctx.restore();
         }
       }
 
-      let motes = [];
+      let arcs = [];
 
       function resize() {
         W = canvas.width  = section.offsetWidth;
@@ -362,8 +456,8 @@
 
       function init() {
         resize();
-        const count = Math.min(Math.floor(W / 20), 50);
-        motes = Array.from({ length: count }, () => new Mote());
+        const count = Math.min(Math.floor(W / 90), 22);
+        arcs = Array.from({ length: count }, () => new WindArc());
       }
 
       let visible = false;
@@ -375,7 +469,7 @@
       function loop() {
         if (visible) {
           ctx.clearRect(0, 0, W, H);
-          motes.forEach(m => { m.update(); m.draw(); });
+          arcs.forEach(a => { a.update(); a.draw(); });
         }
         requestAnimationFrame(loop);
       }
@@ -388,8 +482,8 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     4. MAGNETIC TILT CARDS
-     Work cards + journal cards tilt in 3D toward the mouse
+     5. MAGNETIC TILT CARDS
+     Work & journal cards tilt in 3D perspective toward the mouse with sheen
   ══════════════════════════════════════════════════════════════════════════ */
   function initMagneticCards() {
     if (window.matchMedia("(hover: none)").matches) return;
@@ -409,14 +503,13 @@
         cancelAnimationFrame(raf);
         raf = requestAnimationFrame(() => {
           card.style.transform = `
-            perspective(700px)
-            rotateY(${dx * 8}deg)
-            rotateX(${-dy * 6}deg)
+            perspective(750px)
+            rotateY(${dx * 7}deg)
+            rotateX(${-dy * 5.5}deg)
             translateZ(6px)
           `;
           card.style.transition = "transform 0.08s linear";
 
-          // paint-brush highlight shimmer
           const pct = `${((dx + 1) / 2) * 100}%`;
           card.style.setProperty("--shimmer-x", pct);
         });
@@ -425,18 +518,18 @@
       card.addEventListener("mouseleave", () => {
         cancelAnimationFrame(raf);
         card.style.transition = "transform 0.5s cubic-bezier(0.34,1.56,0.64,1)";
-        card.style.transform  = "perspective(700px) rotateY(0deg) rotateX(0deg) translateZ(0px)";
+        card.style.transform  = "perspective(750px) rotateY(0deg) rotateX(0deg) translateZ(0px)";
       });
     });
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     5. BRUSHSTROKE RIPPLE on Click
-     A Van Gogh paint-splash ripple whenever the user clicks anywhere
+     6. OPTICAL SHUTTER CLICK PULSE (NO SPLATTER DOTS)
+     A clean, luminous optical lens flare ring on click
   ══════════════════════════════════════════════════════════════════════════ */
-  function initClickRipple() {
+  function initClickOptics() {
     const canvas = document.createElement("canvas");
-    canvas.id = "ripple-canvas";
+    canvas.id = "optics-click-canvas";
     canvas.style.cssText = `
       position: fixed;
       inset: 0;
@@ -446,71 +539,54 @@
       z-index: 9998;
     `;
     document.body.appendChild(canvas);
+
     const ctx = canvas.getContext("2d");
     let W = canvas.width  = window.innerWidth;
     let H = canvas.height = window.innerHeight;
 
-    const rippleColors = [
-      VG.sunflower, VG.cobalt, VG.iris,
-      VG.sage, VG.wheat, VG.periwinkle,
-    ];
-
-    class Ripple {
+    class LensPulse {
       constructor(x, y) {
-        this.x     = x;
-        this.y     = y;
-        this.r     = 0;
-        this.maxR  = Math.random() * 60 + 50;
-        this.alpha = 0.7;
-        this.color = rippleColors[Math.floor(Math.random() * rippleColors.length)];
-        this.speed = Math.random() * 2.5 + 2;
-        // splatter drops
-        this.drops = Array.from({ length: 8 }, () => ({
-          angle: Math.random() * Math.PI * 2,
-          dist:  0,
-          speed: Math.random() * 3 + 1.5,
-          r:     Math.random() * 4 + 2,
-          alpha: 0.8,
-        }));
+        this.x = x;
+        this.y = y;
+        this.r = 6;
+        this.maxR = 68;
+        this.alpha = 0.85;
       }
       update() {
-        this.r     += this.speed;
-        this.alpha  = Math.max(0, 0.7 * (1 - this.r / this.maxR));
-        this.drops.forEach(d => {
-          d.dist  += d.speed;
-          d.alpha  = Math.max(0, 0.8 * (1 - d.dist / (this.maxR * 0.9)));
-        });
+        this.r += (this.maxR - this.r) * 0.16 + 1.2;
+        this.alpha = Math.max(0, 0.85 * (1 - this.r / this.maxR));
       }
       draw() {
-        // ring
         ctx.save();
         ctx.globalAlpha = this.alpha;
-        ctx.strokeStyle = this.color;
-        ctx.lineWidth   = 2.5;
+
+        // Golden luminous aperture ring
+        const grad = ctx.createRadialGradient(this.x, this.y, Math.max(0, this.r - 8), this.x, this.y, this.r);
+        grad.addColorStop(0, "rgba(200, 145, 26, 0)");
+        grad.addColorStop(0.8, "rgba(226, 168, 43, 0.65)");
+        grad.addColorStop(1, "rgba(107, 150, 184, 0)");
+
+        ctx.fillStyle = grad;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Delicate crisp ring
+        ctx.strokeStyle = `rgba(245, 208, 128, ${this.alpha * 0.9})`;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r * 0.72, 0, Math.PI * 2);
         ctx.stroke();
-        // splatter
-        this.drops.forEach(d => {
-          const dx = this.x + Math.cos(d.angle) * d.dist;
-          const dy = this.y + Math.sin(d.angle) * d.dist;
-          ctx.globalAlpha = d.alpha;
-          ctx.fillStyle   = this.color;
-          ctx.beginPath();
-          ctx.arc(dx, dy, d.r, 0, Math.PI * 2);
-          ctx.fill();
-        });
+
         ctx.restore();
       }
-      get dead() { return this.alpha <= 0; }
+      get dead() { return this.alpha <= 0.01 || this.r >= this.maxR; }
     }
 
-    let ripples = [];
+    let pulses = [];
 
     document.addEventListener("click", e => {
-      for (let i = 0; i < 3; i++) {
-        ripples.push(new Ripple(e.clientX, e.clientY));
-      }
+      pulses.push(new LensPulse(e.clientX, e.clientY));
     });
 
     window.addEventListener("resize", () => {
@@ -520,8 +596,8 @@
 
     function loop() {
       ctx.clearRect(0, 0, W, H);
-      ripples = ripples.filter(r => !r.dead);
-      ripples.forEach(r => { r.update(); r.draw(); });
+      pulses = pulses.filter(p => !p.dead);
+      pulses.forEach(p => { p.update(); p.draw(); });
       requestAnimationFrame(loop);
     }
 
@@ -529,8 +605,8 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     6. SECTION TRANSITION WIPE
-     A subtle Van Gogh brush-coloured wipe reveals each section on scroll
+     7. SECTION TRANSITION BRUSH SWEEP
+     Subtle Van Gogh golden-cobalt line sweep on scroll reveal
   ══════════════════════════════════════════════════════════════════════════ */
   function initScrollBrush() {
     const sections = document.querySelectorAll("section");
@@ -538,11 +614,11 @@
       const sweep = document.createElement("div");
       sweep.style.cssText = `
         position: absolute;
-        top: 0; left: -100%; width: 100%; height: 4px;
+        top: 0; left: -100%; width: 100%; height: 3px;
         background: linear-gradient(90deg, transparent, ${VG.sunflower}, ${VG.cobalt}, transparent);
         pointer-events: none;
         z-index: 10;
-        transition: left 0.9s cubic-bezier(0.22,0.61,0.36,1), opacity 0.6s ease;
+        transition: left 0.85s cubic-bezier(0.22,0.61,0.36,1), opacity 0.5s ease;
         opacity: 0;
         border-radius: 2px;
       `;
@@ -553,7 +629,7 @@
         if (entries[0].isIntersecting) {
           sweep.style.opacity = "1";
           sweep.style.left    = "0";
-          setTimeout(() => { sweep.style.opacity = "0"; sweep.style.left = "100%"; }, 900);
+          setTimeout(() => { sweep.style.opacity = "0"; sweep.style.left = "100%"; }, 850);
           obs.disconnect();
         }
       }, { threshold: 0.15 });
@@ -566,10 +642,11 @@
   ══════════════════════════════════════════════════════════════════════════ */
   document.addEventListener("DOMContentLoaded", () => {
     initStarryNight();
-    initCursorTrail();
-    initAmbientParticles();
+    initFluidBrushRibbon();
+    initViewfinderCursor();
+    initImpressionistWind();
     initMagneticCards();
-    initClickRipple();
+    initClickOptics();
     initScrollBrush();
   });
 
