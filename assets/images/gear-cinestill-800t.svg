@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" width="100%" height="100%">
+  <defs>
+    <radialGradient id="cineNightBg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#1a2736"/>
+      <stop offset="60%" stop-color="#0e1724"/>
+      <stop offset="100%" stop-color="#060b12"/>
+    </radialGradient>
+    <radialGradient id="redHalation" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff3366" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#e63946" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#d90429" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#1a2736" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cineCanister" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f141c"/>
+      <stop offset="25%" stop-color="#2a3342"/>
+      <stop offset="50%" stop-color="#3d495c"/>
+      <stop offset="75%" stop-color="#202733"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark Atmospheric Backdrop -->
+  <rect width="600" height="375" fill="url(#cineNightBg)"/>
+  
+  <!-- Red Halation Glow in background -->
+  <circle cx="300" cy="180" r="160" fill="url(#redHalation)"/>
+  <ellipse cx="300" cy="315" rx="180" ry="20" fill="#000" opacity="0.65" filter="blur(12px)"/>
+
+  <!-- CineStill 800T Canister (Angled) -->
+  <g transform="translate(190, 75)">
+    <!-- Canister body -->
+    <rect x="50" y="40" width="120" height="180" rx="8" fill="url(#cineCanister)" stroke="#4a5568"/>
+    
+    <!-- Metal Caps -->
+    <ellipse cx="110" cy="40" rx="60" ry="14" fill="#3a4556" stroke="#5a687d"/>
+    <ellipse cx="110" cy="220" rx="60" ry="14" fill="#1f2530" stroke="#333d4b"/>
+    <rect x="98" y="24" width="24" height="16" rx="2" fill="#12161c"/>
+
+    <!-- Cyan / Teal Label with Red Glow -->
+    <rect x="52" y="70" width="116" height="120" fill="#1d3557" stroke="#457b9d" stroke-width="0.5"/>
+    
+    <!-- Halation Red Neon Stripe -->
+    <rect x="52" y="70" width="116" height="8" fill="#e63946"/>
+    <rect x="52" y="182" width="116" height="8" fill="#e63946"/>
+    
+    <!-- Typography -->
+    <text x="110" y="105" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="800" fill="#f1faee" text-anchor="middle" letter-spacing="1">CineStill</text>
+    <text x="110" y="145" font-family="'Syne', system-ui, sans-serif" font-size="34" font-weight="800" fill="#e63946" text-anchor="middle" letter-spacing="-1">800T</text>
+    <text x="110" y="165" font-family="'Space Grotesk', system-ui, sans-serif" font-size="8" font-weight="600" fill="#a8dadc" text-anchor="middle" letter-spacing="1.5">TUNGSTEN COLOR NEGATIVE</text>
+    <text x="110" y="177" font-family="'Space Grotesk', system-ui, sans-serif" font-size="7.5" font-weight="500" fill="#94d2bd" text-anchor="middle">ISO 800 · 35mm · 36 EXP</text>
+
+    <!-- Film Ribbon tail extending out with red glowing edges -->
+    <path d="M170 85 Q210 90 240 140 Q250 160 270 170" fill="none" stroke="#e63946" stroke-width="4" opacity="0.8" filter="blur(2px)"/>
+    <path d="M170 85 Q210 90 240 140 Q250 160 270 170" fill="none" stroke="#1d222b" stroke-width="3"/>
+  </g>
+
+  <!-- Glowing neon reflection dots -->
+  <circle cx="210" cy="115" r="4" fill="#e63946" filter="blur(3px)"/>
+  <circle cx="390" cy="225" r="6" fill="#e63946" filter="blur(4px)"/>
+
+  <text x="300" y="352" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" font-weight="500" fill="#a8dadc" text-anchor="middle" letter-spacing="3">MOTION PICTURE EMULSION · RED HALATIONS · 3200K</text>
+</svg>

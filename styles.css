@@ -2265,3 +2265,823 @@ section { isolation: isolate; }
 
 /* Comment count badge colour */
 .comment-count { color: rgba(255,255,255,0.7); }
+
+
+/* ==========================================================================
+   Gear & Cameras Page Styles
+   Van Gogh Bold Pastel Palette: Periwinkle · Sunflower Gold · Wheat Ochre
+   ========================================================================== */
+
+.gear-page {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Gear Hero */
+.gear-hero {
+  position: relative;
+  padding: calc(90px + var(--space-2xl)) var(--pad) var(--space-2xl);
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+
+.gear-hero-content {
+  max-width: 920px;
+}
+
+.gear-hero .section-eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.gear-hero-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  color: var(--fg);
+  margin: 0 0 1.5rem;
+}
+
+.gear-hero-title em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.gear-hero-desc {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 44ch;
+  margin-bottom: 2.2rem;
+}
+
+.gear-stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.2rem, 3vw, 3rem);
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.gear-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gear-stat-val {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--fg);
+  line-height: 1;
+}
+
+.gear-stat-lbl {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* Loadout Preset Bar */
+.gear-loadouts-section {
+  max-width: var(--max-w);
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--pad);
+}
+
+.gear-loadouts-wrap {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  box-shadow: 0 4px 18px rgba(20,28,45,0.04);
+}
+
+.gear-loadouts-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gear-loadouts-label svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.gear-loadouts-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gear-preset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--fg-soft);
+  background: rgba(190, 201, 216, 0.35);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gear-preset-btn:hover {
+  background: rgba(200, 145, 26, 0.15);
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+.gear-preset-btn.is-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(200, 145, 26, 0.28);
+}
+
+.gear-preset-badge {
+  font-size: 0.65rem;
+  opacity: 0.85;
+  background: rgba(0,0,0,0.12);
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+}
+
+/* Category Filters */
+.gear-filter-section {
+  max-width: var(--max-w);
+  margin: 0 auto 2.5rem;
+  padding: 0 var(--pad);
+}
+
+.gear-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gear-filter-btn {
+  padding: 0.55rem 1.15rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--fg-soft);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gear-filter-btn:hover {
+  background: rgba(20,28,45,0.08);
+  color: var(--fg);
+}
+
+.gear-filter-btn.is-active {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+/* Main Gear Grid */
+.gear-grid-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad) var(--space-4xl);
+}
+
+.gear-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .gear-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Gear Card */
+.gear-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.4rem;
+  box-shadow: 0 4px 18px rgba(20, 28, 45, 0.04);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.gear-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(20, 28, 45, 0.08);
+  border-color: var(--accent);
+}
+
+.gear-card.is-dimmed {
+  opacity: 0.35;
+  filter: grayscale(0.5);
+  pointer-events: none;
+}
+
+.gear-card.is-highlighted {
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(200, 145, 26, 0.22);
+}
+
+/* Card Header */
+.gear-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.gear-type-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(200, 145, 26, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.gear-status-tag {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+}
+
+/* Gear Card Image Media */
+.gear-card-visual {
+  width: 100%;
+  height: 200px;
+  background: rgba(190, 201, 216, 0.35);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gear-card-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
+}
+
+.gear-card:hover .gear-card-visual img {
+  transform: scale(1.05);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.gear-card-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(20, 28, 45, 0.55) 100%);
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.gear-card:hover .gear-card-visual::after {
+  opacity: 0.5;
+}
+
+.gear-card-visual .gear-visual-meta {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gear-card-visual .gear-zoom-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.25s ease;
+}
+
+.gear-card:hover .gear-zoom-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gear-card-visual .gear-zoom-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Card Body */
+.gear-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.gear-card-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--fg);
+  margin: 0;
+}
+
+.gear-card-role {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.gear-card-quote {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--fg);
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--accent);
+  margin: 0.4rem 0 0;
+}
+
+/* Specs Strip */
+.gear-specs-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.gear-spec-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.gear-spec-key {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+}
+
+.gear-spec-val {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+/* Card Footer Actions */
+.gear-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.gear-inspect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--fg);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.gear-inspect-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.gear-inspect-btn:hover {
+  color: var(--accent);
+}
+
+.gear-inspect-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.gear-sample-link {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.gear-sample-link:hover {
+  color: var(--accent);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Analog Film Stocks Deep-Dive Section
+   ══════════════════════════════════════════════════════════════════════════ */
+.analog-deepdive {
+  background: #c4b888; /* Wheat gold accent from palette */
+  color: var(--fg);
+  padding: clamp(4rem, 8vw, 7rem) var(--pad);
+}
+
+.analog-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.analog-header {
+  max-width: 780px;
+  margin-bottom: 3rem;
+}
+
+.analog-header .section-eyebrow {
+  color: var(--fg-soft);
+}
+
+.analog-header .section-title {
+  margin-bottom: 1rem;
+}
+
+.analog-lead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--fg-soft);
+}
+
+.analog-stocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+.analog-stock-card {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(20, 28, 45, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.analog-stock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.analog-stock-iso {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1;
+}
+
+.analog-stock-format {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-soft);
+}
+
+.analog-stock-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.analog-stock-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.analog-meters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(20, 28, 45, 0.12);
+}
+
+.analog-meter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+}
+
+.analog-meter-label {
+  color: var(--fg-soft);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.analog-meter-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(20, 28, 45, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.analog-meter-fill {
+  height: 100%;
+  background: var(--fg);
+  border-radius: 2px;
+}
+
+.analog-meter-val {
+  font-weight: 600;
+  color: var(--fg);
+  width: 55px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Field Philosophy Banner
+   ══════════════════════════════════════════════════════════════════════════ */
+.gear-philosophy-banner {
+  padding: clamp(5rem, 8vw, 7.5rem) var(--pad);
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.gear-philosophy-content {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.gear-philosophy-content blockquote {
+  margin: 0 0 1.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3.8vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+
+.gear-philosophy-content cite {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Interactive Gear Detail Drawer Modal
+   ══════════════════════════════════════════════════════════════════════════ */
+.gear-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gear-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gear-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 21, 37, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.gear-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  background: var(--card-bg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(14, 21, 37, 0.35);
+  overflow-y: auto;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+  padding: 2.2rem;
+}
+
+.gear-modal.is-open .gear-modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+.gear-modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: rgba(20, 28, 45, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--fg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gear-modal-close:hover {
+  background: var(--fg);
+  color: var(--bg);
+  transform: rotate(90deg);
+}
+
+.gear-modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.gear-modal-header {
+  margin-bottom: 1.5rem;
+}
+
+.gear-modal-image-wrap {
+  width: 100%;
+  height: 240px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 1.4rem;
+  border: 1px solid var(--line);
+  background: rgba(20, 28, 45, 0.08);
+}
+
+.gear-modal-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gear-modal-tag {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.gear-modal-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+  color: var(--fg);
+}
+
+.gear-modal-subtitle {
+  font-size: 1rem;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.gear-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gear-modal-section-title {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  margin: 0 0 0.8rem;
+}
+
+.gear-modal-desc {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--fg-soft);
+}
+
+.gear-modal-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gear-modal-specs-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.gear-modal-specs-table td {
+  padding: 0.65rem 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+}
+
+.gear-modal-specs-table td:first-child {
+  color: var(--fg-muted);
+  width: 40%;
+}
+
+.gear-modal-specs-table td:last-child {
+  color: var(--fg);
+  font-weight: 600;
+}

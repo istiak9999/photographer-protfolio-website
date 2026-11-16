@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" width="100%" height="100%">
+  <defs>
+    <radialGradient id="portraBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="60%" stop-color="#f2eadb"/>
+      <stop offset="100%" stop-color="#dfd2be"/>
+    </radialGradient>
+    <linearGradient id="kodakYellow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffcc00"/>
+      <stop offset="70%" stop-color="#e6b800"/>
+      <stop offset="100%" stop-color="#cc9900"/>
+    </linearGradient>
+    <linearGradient id="filmCanister" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1c1f24"/>
+      <stop offset="35%" stop-color="#3d4450"/>
+      <stop offset="70%" stop-color="#2a303a"/>
+      <stop offset="100%" stop-color="#14181e"/>
+    </linearGradient>
+    <linearGradient id="goldSheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Linen Canvas Background -->
+  <rect width="600" height="375" fill="url(#portraBg)"/>
+  
+  <!-- Subtle tabletop shadow -->
+  <ellipse cx="290" cy="305" rx="200" ry="24" fill="#695c47" opacity="0.18" filter="blur(12px)"/>
+
+  <!-- Kodak Portra 400 Box (Perspective Angle) -->
+  <g transform="translate(140, 70)">
+    <!-- Main Box Body -->
+    <rect x="30" y="30" width="180" height="190" rx="4" fill="url(#kodakYellow)" stroke="#b38600" stroke-width="1.5" filter="drop-shadow(4px 10px 20px rgba(70,55,30,0.18))"/>
+    
+    <!-- White brand banner -->
+    <rect x="30" y="30" width="180" height="42" rx="4" fill="#ffffff"/>
+    <rect x="30" y="68" width="180" height="4" fill="#ffffff"/>
+    
+    <!-- Kodak Red & Black Logo block -->
+    <text x="44" y="58" font-family="'Syne', 'Space Grotesk', system-ui, sans-serif" font-size="20" font-weight="800" fill="#cc0000" letter-spacing="1">Kodak</text>
+    <text x="122" y="55" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" font-weight="600" fill="#333" letter-spacing="0.5">PROFESSIONAL</text>
+    
+    <!-- PORTRA big typography -->
+    <text x="44" y="112" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="800" fill="#141820" letter-spacing="-0.5">PORTRA</text>
+    <text x="44" y="160" font-family="'Syne', system-ui, sans-serif" font-size="44" font-weight="800" fill="#cc0000" letter-spacing="-1">400</text>
+    
+    <text x="44" y="185" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#3d4450" letter-spacing="1">COLOR NEGATIVE FILM</text>
+    <text x="44" y="202" font-family="'Space Grotesk', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#6b7280" letter-spacing="0.5">120 FORMAT · C-41 PROCESS</text>
+
+    <!-- Box gloss reflection -->
+    <path d="M30 30 L110 30 L45 220 L30 220 Z" fill="url(#goldSheen)"/>
+  </g>
+
+  <!-- 120 Film Spool Roll (standing) -->
+  <g transform="translate(370, 110)">
+    <!-- Spool rims -->
+    <ellipse cx="45" cy="20" rx="36" ry="12" fill="#2d333b" stroke="#4a5568"/>
+    <ellipse cx="45" cy="180" rx="36" ry="12" fill="#1a1e24" stroke="#333d4b"/>
+    <rect x="18" y="20" width="54" height="160" fill="url(#filmCanister)"/>
+    
+    <!-- White & Red Backing Paper Band -->
+    <rect x="18" y="55" width="54" height="90" fill="#ffffff" stroke="#e2e8f0"/>
+    <rect x="18" y="75" width="54" height="26" fill="#e6b800"/>
+    <text x="45" y="92" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" font-weight="800" fill="#cc0000" text-anchor="middle" letter-spacing="0.5">PORTRA</text>
+    <text x="45" y="125" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="800" fill="#141820" text-anchor="middle">400</text>
+    
+    <!-- Top key spindle slot -->
+    <ellipse cx="45" cy="20" rx="14" ry="5" fill="#141820"/>
+  </g>
+
+  <!-- 35mm Canister lying down -->
+  <g transform="translate(100, 240)">
+    <!-- Canister Body -->
+    <rect x="35" y="25" width="115" height="50" rx="6" fill="url(#filmCanister)" stroke="#4a5568"/>
+    <rect x="25" y="29" width="10" height="42" rx="2" fill="#5a6578"/>
+    <rect x="150" y="32" width="8" height="36" rx="2" fill="#141820"/>
+    
+    <!-- Yellow Kodak Label -->
+    <rect x="50" y="28" width="80" height="44" rx="2" fill="url(#kodakYellow)"/>
+    <text x="90" y="47" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10" font-weight="800" fill="#cc0000" text-anchor="middle">Kodak 400</text>
+    <text x="90" y="62" font-family="'Space Grotesk', system-ui, sans-serif" font-size="8" font-weight="700" fill="#141820" text-anchor="middle" letter-spacing="1">135-36 EXP</text>
+    
+    <!-- Film Tongue Leader pulling out -->
+    <path d="M150 40 Q180 40 210 52 L210 66 Q180 54 150 54 Z" fill="#2d2518" stroke="#1a1408"/>
+    <!-- Sprocket holes -->
+    <rect x="160" y="44" width="4" height="2" rx="0.5" fill="#fdfbf7"/>
+    <rect x="175" y="46" width="4" height="2" rx="0.5" fill="#fdfbf7"/>
+    <rect x="190" y="49" width="4" height="2" rx="0.5" fill="#fdfbf7"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="300" y="352" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" font-weight="500" fill="#7a6f5d" text-anchor="middle" letter-spacing="3">LEGENDARY LATITUDE · WARM PASTEL SKINTONES · C-41</text>
+</svg>

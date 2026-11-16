@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" width="100%" height="100%">
+  <defs>
+    <radialGradient id="gitzoBg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#222b35"/>
+      <stop offset="70%" stop-color="#141a22"/>
+      <stop offset="100%" stop-color="#0a0d12"/>
+    </radialGradient>
+    <linearGradient id="carbonWeave" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#181c22"/>
+      <stop offset="50%" stop-color="#2a3038"/>
+      <stop offset="100%" stop-color="#15181e"/>
+    </linearGradient>
+    <linearGradient id="gitzoSilver" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#718096"/>
+      <stop offset="40%" stop-color="#e2e8f0"/>
+      <stop offset="70%" stop-color="#a0aec0"/>
+      <stop offset="100%" stop-color="#4a5568"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="375" fill="url(#gitzoBg)"/>
+  <ellipse cx="300" cy="325" rx="170" ry="18" fill="#000" opacity="0.6" filter="blur(10px)"/>
+
+  <!-- Folded Tripod Assembly -->
+  <g transform="translate(190, 45)">
+    <!-- Ball Head -->
+    <rect x="95" y="10" width="30" height="12" rx="2" fill="url(#gitzoSilver)"/>
+    <circle cx="110" cy="38" r="16" fill="url(#gitzoSilver)"/>
+    <rect x="88" y="50" width="44" height="28" rx="4" fill="#2d3748" stroke="#4a5568"/>
+    <!-- Locking knobs -->
+    <ellipse cx="78" cy="62" rx="10" ry="6" fill="#1a202c" stroke="#4a5568"/>
+    <ellipse cx="142" cy="62" rx="8" ry="5" fill="#1a202c" stroke="#4a5568"/>
+
+    <!-- Spider / Center Casting (Gitzo hammered grey finish) -->
+    <path d="M80 80 L140 80 L146 105 L74 105 Z" fill="#39424e" stroke="#4a5568" stroke-width="1.5"/>
+    <circle cx="110" cy="92" r="5" fill="#1a202c"/>
+
+    <!-- 3 Carbon Fiber Legs in Folded Profile -->
+    <!-- Center leg -->
+    <rect x="98" y="105" width="24" height="170" rx="3" fill="url(#carbonWeave)" stroke="#39424e"/>
+    <!-- Left leg -->
+    <rect x="70" y="105" width="24" height="170" rx="3" fill="url(#carbonWeave)" stroke="#39424e"/>
+    <!-- Right leg -->
+    <rect x="126" y="105" width="24" height="170" rx="3" fill="url(#carbonWeave)" stroke="#39424e"/>
+
+    <!-- Carbon Fiber Diagonal Hash Textures -->
+    <g stroke="#323b46" stroke-width="1.2" opacity="0.6">
+      <line x1="70" y1="130" x2="94" y2="120"/>
+      <line x1="70" y1="150" x2="94" y2="140"/>
+      <line x1="70" y1="170" x2="94" y2="160"/>
+      <line x1="70" y1="210" x2="94" y2="200"/>
+      <line x1="70" y1="230" x2="94" y2="220"/>
+
+      <line x1="98" y1="130" x2="122" y2="120"/>
+      <line x1="98" y1="150" x2="122" y2="140"/>
+      <line x1="98" y1="170" x2="122" y2="160"/>
+      <line x1="98" y1="210" x2="122" y2="200"/>
+      <line x1="98" y1="230" x2="122" y2="220"/>
+
+      <line x1="126" y1="130" x2="150" y2="120"/>
+      <line x1="126" y1="150" x2="150" y2="140"/>
+      <line x1="126" y1="170" x2="150" y2="160"/>
+      <line x1="126" y1="210" x2="150" y2="200"/>
+      <line x1="126" y1="230" x2="150" y2="220"/>
+    </g>
+
+    <!-- Gitzo G-Lock Ultra Twist Rings -->
+    <rect x="68" y="180" width="28" height="14" rx="2" fill="#181c22" stroke="#e2a82b" stroke-width="0.8"/>
+    <rect x="96" y="180" width="28" height="14" rx="2" fill="#181c22" stroke="#e2a82b" stroke-width="0.8"/>
+    <rect x="124" y="180" width="28" height="14" rx="2" fill="#181c22" stroke="#e2a82b" stroke-width="0.8"/>
+
+    <!-- Rubber Feet -->
+    <rect x="74" y="275" width="16" height="12" rx="3" fill="#11151a"/>
+    <rect x="102" y="275" width="16" height="12" rx="3" fill="#11151a"/>
+    <rect x="130" y="275" width="16" height="12" rx="3" fill="#11151a"/>
+
+    <!-- Gitzo Logo Badge -->
+    <rect x="98" y="112" width="24" height="20" fill="#11151a"/>
+    <text x="110" y="125" font-family="'Space Grotesk', system-ui, sans-serif" font-size="6" font-weight="700" fill="#e2a82b" text-anchor="middle" letter-spacing="1">GITZO</text>
+  </g>
+
+  <text x="300" y="352" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" font-weight="500" fill="#8898aa" text-anchor="middle" letter-spacing="3">CARBON EXACT · 18KG CAPACITY · G-LOCK ULTRA</text>
+</svg>
