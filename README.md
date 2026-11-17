@@ -9,7 +9,7 @@ The page uses a sample photographer identity and sample portfolio copy. Replace 
 ## Features
 
 - Responsive layout with a mobile navigation menu
-- Photography gallery with Landscape, Portrait, and Urban filters
+- Photography gallery with Landscape, Portrait, Urban, and Wildlife filters
 - Full-size image lightbox with captions, previous/next controls, and keyboard navigation
 - Journal cards that open full articles in a reader modal
 - About, biography, and contact sections
@@ -76,7 +76,7 @@ Gallery images also have descriptive `alt` text. Write useful alternatives for i
 Each gallery item is a `.work-card` in `index.html`. To add an item:
 
 1. Duplicate a `<figure class="work-card">` block.
-2. Set its `data-category` to one of the existing filter values: `landscape`, `portrait`, or `urban`.
+2. Set its `data-category` to one of the existing filter values: `landscape`, `portrait`, `urban`, or `wildlife`.
 3. Update the image paths, alt text, title, category label, location, and accessible link label.
 4. Ensure the link's `data-full` points to the full-size image.
 
