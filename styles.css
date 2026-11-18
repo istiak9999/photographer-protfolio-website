@@ -3085,3 +3085,153 @@ section { isolation: isolate; }
   color: var(--fg);
   font-weight: 600;
 }
+
+/* ========================================================================
+   Fluid viewport and device refinements
+   ======================================================================== */
+html { scroll-padding-top: clamp(4.5rem, 10vh, 6rem); }
+body { min-width: 320px; }
+
+/* Keep full-screen UI clear of notches and browser chrome. */
+.site-header {
+  top: max(.65rem, env(safe-area-inset-top));
+  left: max(var(--pad), env(safe-area-inset-left));
+  right: max(var(--pad), env(safe-area-inset-right));
+}
+.mobile-menu {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: max(6rem, calc(env(safe-area-inset-top) + 5rem));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  padding-left: max(var(--pad), env(safe-area-inset-left));
+  padding-right: max(var(--pad), env(safe-area-inset-right));
+  overflow-y: auto;
+}
+.lightbox-content { max-height: calc(100dvh - 8rem); }
+.lightbox-content img { max-height: calc(100dvh - 12rem); object-fit: contain; }
+.reader-panel { max-height: calc(100dvh - 2rem); }
+.reader-content { max-height: calc(100dvh - 2rem); overscroll-behavior: contain; }
+.gear-modal { padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)); }
+.gear-modal-panel { max-height: calc(100dvh - 2rem); }
+
+/* Grid children are allowed to shrink instead of forcing horizontal scroll. */
+.about-grid,
+.contact-grid,
+.journal-grid,
+.gallery,
+.gear-cards-grid,
+.analog-stocks-grid { min-width: 0; }
+.about-grid > *, .contact-grid > *, .journal-card > *, .gear-card,
+.analog-stock-card { min-width: 0; }
+.gear-cards-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); }
+.analog-stocks-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.gear-card { padding: clamp(1.1rem, 2.5vw, 1.8rem); }
+.gear-card-title, .gear-card-role, .gear-card-quote,
+.gear-spec-val, .contact-email { overflow-wrap: anywhere; }
+
+@media (max-width: 900px) {
+  :root { --pad: clamp(1rem, 4vw, 2rem); }
+  .site-header { left: max(1rem, env(safe-area-inset-left)); right: max(1rem, env(safe-area-inset-right)); }
+  .section-title { font-size: clamp(2.35rem, 6.5vw, 4.5rem); }
+  .about-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .about-image { width: min(100%, 38rem); margin-inline: auto; }
+  .contact-info { max-width: 42rem; }
+  .contact-form { width: 100%; }
+}
+
+@media (max-width: 700px) {
+  :root { --pad: clamp(1rem, 5vw, 1.5rem); }
+  section { padding-block: clamp(3.75rem, 12vw, 5rem); }
+  .hero {
+    min-height: 0;
+    min-height: auto;
+    grid-template-rows: auto clamp(14rem, 55vw, 26rem) auto;
+    row-gap: clamp(1rem, 4vw, 1.7rem);
+    padding-top: max(6.5rem, calc(env(safe-area-inset-top) + 5.5rem));
+    padding-bottom: 1.5rem;
+  }
+  .hero-title { font-size: clamp(2.8rem, 12vw, 4.7rem); line-height: .96; }
+  .hero-copy { max-width: 42rem; }
+  .hero-desc { max-width: 40ch; }
+  .hero-actions { flex-flow: row wrap; }
+  .hero-actions .btn { width: auto; min-height: 44px; }
+  .hero-bg { min-height: 14rem; }
+  .hero-stats { padding-top: .85rem; }
+  .hero-stats .stat-num { font-size: clamp(1.3rem, 6vw, 1.65rem); }
+  .hero-stats .stat-label { font-size: clamp(.52rem, 2.3vw, .62rem); }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+  .work-card, .work-card:nth-child(3n + 1), .work-card:nth-child(3n + 2) { grid-column: auto; }
+  .work-media, .work-card:nth-child(3n + 2) .work-media { aspect-ratio: 4 / 5; }
+  .work-card:nth-child(4n + 1) { grid-column: span 2; }
+  .work-card:nth-child(4n + 1) .work-media { aspect-ratio: 1.45; }
+  .work-overlay { padding: .75rem; }
+  .work-title { font-size: clamp(1rem, 4.5vw, 1.45rem); }
+  .work-location { font-size: .65rem; }
+  .work-expand { width: 32px; height: 32px; flex: 0 0 32px; }
+  .journal-grid { grid-template-columns: 1fr; }
+  .journal-card { grid-template-columns: minmax(5.5rem, 34%) minmax(0, 1fr); }
+  .footer-content { gap: 1.5rem; }
+  .gear-hero { padding-top: max(7rem, calc(env(safe-area-inset-top) + 6rem)); }
+  .gear-hero-title { font-size: clamp(2.5rem, 11vw, 4rem); }
+  .gear-loadouts-wrap { padding: 1rem; }
+  .gear-filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: thin; }
+  .gear-filter-btn, .gear-preset-btn { flex: 0 0 auto; min-height: 42px; }
+  .gear-card-visual { height: clamp(160px, 48vw, 220px); }
+  .gear-modal-panel { padding: 1.25rem; }
+}
+
+@media (max-width: 420px) {
+  .brand { gap: .5rem; }
+  .brand-text { font-size: .9rem; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; }
+  .hero-actions .btn { width: 100%; }
+  .gallery { gap: .55rem; }
+  .work-card:nth-child(4n + 1) .work-media { aspect-ratio: 1.15; }
+  .work-info { max-width: calc(100% - 2.5rem); }
+  .work-cat { font-size: .55rem; }
+  .work-title { font-size: 1rem; }
+  .work-location { font-size: .58rem; }
+  .journal-card { grid-template-columns: minmax(4.5rem, 32%) minmax(0, 1fr); gap: .65rem; }
+  .journal-title { font-size: 1rem; }
+  .gear-card-foot { flex-wrap: wrap; }
+  .gear-sample-link { overflow-wrap: anywhere; }
+}
+
+/* A short landscape viewport needs a compact split hero and scrolling dialogs. */
+@media (orientation: landscape) and (max-height: 560px) {
+  .hero {
+    min-height: 100svh;
+    min-height: 100dvh;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-rows: 1fr auto;
+    column-gap: 1.5rem;
+    row-gap: .8rem;
+    padding: max(5rem, calc(env(safe-area-inset-top) + 4rem)) var(--pad) max(1rem, env(safe-area-inset-bottom));
+  }
+  .hero-content { grid-column: 1; grid-row: 1; }
+  .hero-bg {
+    position: absolute;
+    grid-column: auto;
+    grid-row: auto;
+    inset: max(4.5rem, env(safe-area-inset-top)) max(var(--pad), env(safe-area-inset-right)) 1rem 53%;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    border-radius: 2px;
+  }
+  .hero-title { font-size: clamp(2.2rem, 6.5vh, 3.5rem); }
+  .hero-eyebrow { margin-bottom: .6rem; }
+  .hero-desc { margin-bottom: .9rem; font-size: .9rem; }
+  .hero-stats { grid-column: 1; grid-row: 2; padding-top: .6rem; gap: 1rem; }
+  .hero-stats .stat-num { font-size: 1.2rem; }
+  .hero-stats .stat-label { font-size: .5rem; }
+  .hero-actions .btn { padding: .65rem 1rem; }
+  .lightbox-content img { max-height: calc(100dvh - 8rem); }
+}
+
+@media (hover: none) {
+  .work-info { transform: none; }
+  .gear-card-visual .gear-zoom-icon { opacity: 1; transform: none; }
+  .work-card:hover, .journal-card:hover, .gear-card:hover { transform: none; }
+}
