@@ -19,9 +19,9 @@
   --overlay-strong: rgba(20, 28, 45, 0.72);
   
   /* Typography */
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-ui: "Space Grotesk", system-ui, sans-serif;
-  --font-body: "Space Grotesk", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-ui: "DM Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
   
   /* Spacing */
   --space-xs: 0.5rem;
@@ -1331,9 +1331,9 @@ section { padding: var(--space-4xl) var(--pad); }
   --card-bg: #cad4e2;
   --max-w: 1380px;
   --pad: clamp(1.25rem, 5vw, 5rem);
-  --font-display: "Syne", "Space Grotesk", sans-serif;
-  --font-ui: "Space Grotesk", sans-serif;
-  --font-body: "Space Grotesk", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-ui: "DM Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
 }
 
 body { background: var(--bg); color: var(--fg); }
