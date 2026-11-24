@@ -172,8 +172,8 @@
      ========================================================================== */
   const articles = {
     "prepare-portrait": {
-      title: "How to prepare for a portrait that feels like you",
-      meta: "Craft · Feb 2026 · 6 min read",
+      title: "Making room for a portrait to feel like you",
+      meta: "Portraits · Feb 2026 · 6 min read",
       image: "assets/images/about.jpg",
       alt: "Photographer adjusting a portrait session in soft natural light",
       body: `
