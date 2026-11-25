@@ -3573,3 +3573,48 @@ section { padding-block: clamp(4.5rem, 8vw, 7.5rem); }
 .filter-btn:hover,
 .gear-filter-btn:hover,
 .gear-preset-btn:hover { border-color: currentColor; }
+
+/* Modern editorial palette: warm ivory, charcoal, and terracotta. */
+:root {
+  color-scheme: light;
+  --bg: #f4f1ec;
+  --bg-elevated: #ebe7e0;
+  --fg: #262622;
+  --fg-soft: #57564f;
+  --fg-muted: #817e75;
+  --accent: #a8543d;
+  --accent-hover: #88412f;
+  --line: #ddd8cf;
+  --line-strong: #c6bfb3;
+  --card-bg: #fbf9f5;
+  --overlay: rgba(30, 29, 26, .44);
+  --overlay-strong: rgba(30, 29, 26, .78);
+  --glass-surface: rgba(251, 249, 245, .76);
+  --glass-surface-strong: rgba(251, 249, 245, .9);
+  --glass-edge: rgba(255, 255, 255, .74);
+  --glass-shadow: 0 16px 42px rgba(38, 38, 34, .08), inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+body { background: var(--bg); color: var(--fg); }
+.site-header.scrolled { background: rgba(244, 241, 236, .88); }
+.brand-mark { background: var(--accent); color: #fffaf5; }
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(30, 29, 26, .7), rgba(30, 29, 26, .2) 78%),
+              linear-gradient(0deg, rgba(30, 29, 26, .42), transparent 58%);
+}
+.hero-title .title-line--accent { color: #e9c2b4; }
+.btn-primary { background: #a8543d; color: #fffaf5; }
+.btn-primary:hover { background: #88412f; }
+.filter-btn.is-active,
+.gear-filter-btn.is-active,
+.gear-preset-btn.is-active { color: var(--fg); }
+.about, .gear-hero { background: #ebe7e0; }
+.contact { background: #e9e2da; }
+.journal-card, .gear-card { background: var(--card-bg); }
+.site-footer { background: #292a27; color: #f4f1ec; }
+.site-footer a:hover { color: #e9c2b4; }
+.mobile-menu { background: rgba(235, 231, 224, .96); }
+.hero .btn-primary,
+.hero .btn-primary:hover,
+.hero .btn-secondary,
+.hero .btn-secondary:hover { color: #fffaf5; }
